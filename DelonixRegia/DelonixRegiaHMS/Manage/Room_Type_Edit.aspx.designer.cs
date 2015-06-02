@@ -10,7 +10,7 @@
 namespace DelonixRegiaHMS.Manage {
     
     
-    public partial class Room_Add {
+    public partial class Room_Type_Edit {
         
         /// <summary>
         /// alertSuccess control.
@@ -40,31 +40,22 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMessage;
         
         /// <summary>
-        /// tbxRoomNumber control.
+        /// tbxRoomType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxRoomNumber;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxRoomType;
         
         /// <summary>
-        /// ddlRoomType control.
+        /// tbxRoomRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRoomType;
-        
-        /// <summary>
-        /// ddlStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxRoomRate;
         
         /// <summary>
         /// btnSubmit control.

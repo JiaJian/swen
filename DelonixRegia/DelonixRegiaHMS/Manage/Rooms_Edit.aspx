@@ -1,21 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Room_Add.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Room_Add" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Rooms_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Rooms_Edit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
-	Add a room record
+	Edit room record
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="row">
+		<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Add a room record</h1>
+			<h1 class="page-header">Edit room record</h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
 				<strong>Success!</strong>
-				<p>A new room record was created.</p>
+				<p>The room record was updated.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -37,10 +36,7 @@
 					<label for="ddlRoomType" class="col-sm-2 control-label">Room Type</label>
 					<div class="col-sm-10">
 						<select class="form-control" name="ddlRoomType" id="ddlRoomType" runat="server">
-							<option value="1" selected>Superior Room</option>
-							<option value="2">Deluxe Room</option>
-							<option value="3">Executive Suite</option>
-							<option value="4">Waterfront Suite</option>
+
 						</select>
 					</div>
 				</div>
@@ -59,8 +55,8 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-success" id="btnSubmit" runat="server">
-							<span class="glyphicon glyphicon-plus"></span>
-							Add room
+							<span class="glyphicon glyphicon-pencil"></span>
+							Save updates
 						</button>
 					</div>
 				</div>

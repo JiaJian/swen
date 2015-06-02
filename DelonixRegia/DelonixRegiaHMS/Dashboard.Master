@@ -109,10 +109,10 @@
 										<a href="/manage/room-type">Manage Room Types</a>
 									</li>
 									<li>
-										<a href="/manage/room/add">Add Room</a>
+										<a href="/manage/rooms/add">Add Room</a>
 									</li>
 									<li>
-										<a href="/manage/room">Manage Rooms</a>
+										<a href="/manage/rooms">Manage Rooms</a>
 									</li>
 								</ul>
 							</li>

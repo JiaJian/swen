@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Room_Type_Overview.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Room_Type_Overview" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Rooms_Overview.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Rooms_Overview" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
-	Overview of all room types
+	Overview of all rooms
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Overview of all room types</h1>
+			<h1 class="page-header">Overview of all rooms</h1>
 		</div>
 	</div>
 
@@ -33,9 +33,10 @@
 					<table class="table table-striped" id="dtbl">
 						<thead>
 							<tr>
-								<th>Room Type ID</th>
+								<th>ID</th>
+								<th>Room Number</th>
 								<th>Room Type</th>
-								<th>Rate (S$)</th>
+								<th>Status</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -45,19 +46,24 @@
 					<tr>
 						<td><%# Eval("id") %></td>
 						<td>
-							<p><%# Eval("type") %></p>
+							<p><%# Eval("RoomNumber") %></p>
 						</td>
 						<td>
 							<p>
-								S$<%# Eval("rate") %>
+								<%# Eval("RoomType") %>
 							</p>
 						</td>
 						<td>
-							<a href="/manage/room-type/edit/<%# Eval("id") %>" class="btn btn-warning">
+							<p>
+								<%# GetStatusDescription((int)Eval("status")) %>
+							</p>
+						</td>
+						<td>
+							<a href="/manage/rooms/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit
 							</a>
-							<a data-href="/manage/room-type/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="javascript:void(0);">
+							<a data-href="/manage/rooms/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="javascript:void(0);">
 								<span class="glyphicon glyphicon-trash"></span>
 								Delete
 							</a>
@@ -68,19 +74,24 @@
 					<tr>
 						<td><%# Eval("id") %></td>
 						<td>
-							<p><%# Eval("type") %></p>
+							<p><%# Eval("RoomNumber") %></p>
 						</td>
 						<td>
 							<p>
-								S$<%# Eval("rate") %>
+								<%# Eval("RoomType") %>
 							</p>
 						</td>
 						<td>
-							<a href="/manage/room-type/edit/<%# Eval("id") %>" class="btn btn-warning">
+							<p>
+								<%# GetStatusDescription((int)Eval("status")) %>
+							</p>
+						</td>
+						<td>
+							<a href="/manage/rooms/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit
 							</a>
-							<a data-href="/manage/room-type/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
+							<a data-href="/manage/rooms/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="javascript:void(0);">
 								<span class="glyphicon glyphicon-trash"></span>
 								Delete
 							</a>
@@ -91,6 +102,7 @@
 					</tbody>
 			</table>
 				</FooterTemplate>
+
 			</asp:Repeater>
 		</div>
 	</div>

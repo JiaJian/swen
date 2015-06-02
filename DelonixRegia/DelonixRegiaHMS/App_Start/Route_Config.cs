@@ -29,6 +29,18 @@ namespace DelonixRegiaHMS {
 				"~/Manage/Room_Booking_Overview.aspx"
 			);
 
+			routes.MapPageRoute(
+				"rb3",
+				"manage/roombooking/edit/{id}",
+				"~/Manage/Room_Booking_Edit.aspx"
+			);
+
+			routes.MapPageRoute(
+				"rb4",
+				"manage/roombooking/delete/{id}",
+				"~/Manage/Room_Booking_Delete.aspx"
+			);
+
 			// Room Management
 			routes.MapPageRoute(
 				"rm1",
@@ -44,14 +56,38 @@ namespace DelonixRegiaHMS {
 
 			routes.MapPageRoute(
 				"rm3",
-				"manage/room/add",
-				"~/Manage/Room_Add.aspx"
+				"manage/room-type/edit/{id}",
+				"~/Manage/Room_Type_Edit.aspx"
 			);
 
 			routes.MapPageRoute(
 				"rm4",
-				"manage/room",
-				"~/Manage/Room_Overview.aspx"
+				"manage/room-type/delete/{id}",
+				"~/Manage/Room_Type_Delete.aspx"
+			);
+
+			routes.MapPageRoute(
+				"rm5",
+				"manage/rooms/add",
+				"~/Manage/Rooms_Add.aspx"
+			);
+
+			routes.MapPageRoute(
+				"rm6",
+				"manage/rooms",
+				"~/Manage/Rooms_Overview.aspx"
+			);
+
+			routes.MapPageRoute(
+				"rm7",
+				"manage/rooms/edit/{id}",
+				"~/Manage/Rooms_Edit.aspx"
+			);
+
+			routes.MapPageRoute(
+				"rm8",
+				"manage/rooms/delete/{id}",
+				"~/Manage/Rooms_Delete.aspx"
 			);
 
 			// Staff Record

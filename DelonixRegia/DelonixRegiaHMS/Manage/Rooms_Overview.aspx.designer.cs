@@ -10,7 +10,7 @@
 namespace DelonixRegiaHMS.Manage {
     
     
-    public partial class Room_Type_Overview {
+    public partial class Rooms_Overview {
         
         /// <summary>
         /// alertSuccess control.
