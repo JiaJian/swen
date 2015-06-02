@@ -1,0 +1,157 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="DelonixRegia.Home" %>
+
+<%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="Assets/Images/favicon.ico" />
+
+	<title>
+		<asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
+		| Delonix Regia</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="Assets/Styles/bootstrap.min.css" />
+	<link rel="stylesheet" href="Assets/Styles/font-awesome.min.css" />
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="Assets/Styles/home.css" />
+
+	<asp:ContentPlaceHolder ID="Styles" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+	<form id="form1" runat="server">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Delonix Regia</a>
+				</div>
+
+				<!-- Placeholder for dynamic navbar -->
+				<div class="navbar-collapse collapse">
+					<!-- Left navbar -->
+					<ul class="nav navbar-nav" id="navbar_admin" runat="server" visible="false">
+						<li><a href="/">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">User and Job Seeker <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "user", "add") %>">Add User Account</a></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "user", "overview") %>">Manage Users</a></li>
+								<li class="divider"></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "job_profile", "add") %>">Add Job Seeker Profile</a></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "job_profile", "overview") %>">Manage Job Seeker Profiles</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Knowledge Area <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "knowledge_area", "add") %>">Add Knowledge Area</a></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "skillset", "add") %>">Add Skillset</a></li>
+								<li class="divider"></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "knowledge_area", "overview") %>">Manage Knowledge Areas</a></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "skillset", "overview") %>">Manage Skillsets</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Listing <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "job_listing", "add") %>">Add Job Listing</a></li>
+								<li class="divider"></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "job_listing", "overview") %>">Manage Job Listings</a></li>
+								<li><a href="<%: FriendlyUrl.Href("~/manage", "job_application", "overview") %>">View Job Applications</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav" id="navbar_jobseeker" runat="server" visible="false">
+						<li><a href="/">Home</a></li>
+						<li><a href="/job_listing">Job Listings</a></li>
+					</ul>
+
+					<!-- Right navbar -->
+					<ul class="nav navbar-nav navbar-right" id="navbar_right_notloggedin" runat="server" visible="false">
+						<li><a href="signup">Sign up</a></li>
+						<li><a href="login">Login</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" id="navbar_right_loggedin" runat="server" visible="false">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hey, <span id="lblUsername" runat="server" />
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu" id="dropdown_admin" runat="server" visible="false">
+								<li><a href="/jobseeker/settings">Account Settings</a></li>
+								<li><a href="/jobseeker/change_password">Change Password</a></li>
+
+								<li class="divider"></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+							<ul class="dropdown-menu" role="menu" id="dropdown_jobseeker" runat="server" visible="false">
+								<li><a href="/jobseeker/settings">Account Settings</a></li>
+								<li><a href="/jobseeker/change_password">Change Password</a></li>
+								<li><a href="/jobseeker/profile">Profile</a></li>
+
+								<li class="divider"></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Placeholder for container and main content -->
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+
+		<!-- Bootstrap sticky footer -->
+		<div style="padding-top: 20px;"></div>
+		<div class="footer">
+			<div class="container">
+				<p class="text-muted">&copy; 2015. Delonix Regia Pte Ltd.</p>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript. Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="Assets/Scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="Assets/Scripts/moment.min.js"></script>
+
+		<!--
+            <script type="text/javascript" charset="utf-8" src="/Scripts/moment.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/Scripts/bootstrap-datetimepicker.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/Scripts/main.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/Scripts/bootstrapValidator.js"></script>
+            -->
+
+
+		<asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
+
+		<script type="text/javascript">
+			/* JS to add 'active' class in navbar */
+			$(document).ready(function () {
+				// For navbar menu.
+				var url = window.location;
+				$('.navbar .nav').find('.active').removeClass('active');
+				$('.navbar .nav li a').each(function () {
+					if (this.href == url) {
+						$(this).parent().addClass('active');
+					}
+				});
+			});
+		</script>
+	</form>
+</body>
+</html>

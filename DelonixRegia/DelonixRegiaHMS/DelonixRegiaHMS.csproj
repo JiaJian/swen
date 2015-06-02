@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C067B94D-8162-41DC-A567-53128F706343}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DelonixRegiaHMS</RootNamespace>
+    <AssemblyName>DelonixRegiaHMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DelonixRegia-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=localhost\SQLEXPRESS%3bInitial Catalog=DelonixRegia%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\DelonixRegia-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DelonixRegia-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=team-mc.cloudapp.net%3bInitial Catalog=DelonixRegia%3bUser ID=delonixregia%3bPassword=delonixregia" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\DelonixRegia-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\favicon.png" />
+    <Content Include="Assets\Scripts\bootstrap.js" />
+    <Content Include="Assets\Scripts\bootstrap.min.js" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <None Include="Assets\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Assets\Scripts\dashboard.js" />
+    <Content Include="Assets\Scripts\highcharts.js" />
+    <Content Include="Assets\Scripts\highcharts-no-data.js" />
+    <Content Include="Assets\Scripts\jquery-1.9.1.js" />
+    <Content Include="Assets\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Assets\Scripts\metisMenu.min.js" />
+    <Content Include="Assets\Styles\dashboard.css" />
+    <Content Include="Assets\Styles\metisMenu.min.css" />
+    <Content Include="Assets\Scripts\npm.js" />
+    <Content Include="Assets\Scripts\particleground.min.js" />
+    <Content Include="Assets\Styles\bootstrap-theme.css" />
+    <Content Include="Assets\Styles\bootstrap-theme.min.css" />
+    <Content Include="Assets\Styles\bootstrap.css" />
+    <Content Include="Assets\Styles\bootstrap.min.css" />
+    <Content Include="Assets\Styles\login.css" />
+    <Content Include="Assets\Styles\font-awesome.css" />
+    <Content Include="Assets\Styles\font-awesome.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.autoFill.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.autoFill.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.colReorder.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.colReorder.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.colVis.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.colVis.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.fixedColumns.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.fixedHeader.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.keyTable.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.keyTable.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.responsive.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.scroller.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.scroller.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.tableTools.css" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.tableTools.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Assets\Styles\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Assets\Styles\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Assets\Styles\DataTables\images\background.png" />
+    <Content Include="Assets\Styles\DataTables\images\back_disabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\back_enabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\back_enabled_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\collection.png" />
+    <Content Include="Assets\Styles\DataTables\images\collection_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\copy.png" />
+    <Content Include="Assets\Styles\DataTables\images\copy_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\csv.png" />
+    <Content Include="Assets\Styles\DataTables\images\csv_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\details_close.png" />
+    <Content Include="Assets\Styles\DataTables\images\details_open.png" />
+    <Content Include="Assets\Styles\DataTables\images\filler.png" />
+    <Content Include="Assets\Styles\DataTables\images\forward_disabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\forward_enabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\forward_enabled_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\insert.png" />
+    <Content Include="Assets\Styles\DataTables\images\loading-background.png" />
+    <Content Include="Assets\Styles\DataTables\images\pdf.png" />
+    <Content Include="Assets\Styles\DataTables\images\pdf_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\print.png" />
+    <Content Include="Assets\Styles\DataTables\images\print_hover.png" />
+    <Content Include="Assets\Styles\DataTables\images\sort_asc.png" />
+    <Content Include="Assets\Styles\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\sort_both.png" />
+    <Content Include="Assets\Styles\DataTables\images\sort_desc.png" />
+    <Content Include="Assets\Styles\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Assets\Styles\DataTables\images\xls.png" />
+    <Content Include="Assets\Styles\DataTables\images\xls_hover.png" />
+    <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls.swf" />
+    <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Default.aspx" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
+    <Content Include="Icon.png" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Manage\Duty_Assign.aspx" />
+    <Content Include="Manage\Duty_Type_Add.aspx" />
+    <Content Include="Manage\Duty_Type_Overview.aspx" />
+    <Content Include="Manage\Guest_Account_Add.aspx" />
+    <Content Include="Manage\Guest_Account_Overview.aspx" />
+    <Content Include="Manage\Room_Add.aspx" />
+    <Content Include="Manage\Room_Booking_Add.aspx" />
+    <Content Include="Manage\Room_Booking_Overview.aspx" />
+    <Content Include="Manage\Room_Overview.aspx" />
+    <Content Include="Manage\Room_Type_Add.aspx" />
+    <Content Include="Manage\Room_Type_Overview.aspx" />
+    <Content Include="Manage\Staff_Account_Add.aspx" />
+    <Content Include="Manage\Staff_Account_Overview.aspx" />
+    <Content Include="Manage\Staff_Record_Overview.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Styles\bootstrap-theme.css.map" />
+    <Content Include="Assets\Styles\bootstrap.css.map" />
+    <Content Include="Assets\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.colVis.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.colVis.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.tableTools.js" />
+    <Content Include="Assets\Scripts\DataTables\dataTables.tableTools.min.js" />
+    <Content Include="Assets\Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Assets\Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Reports\Guest_Details_All.aspx" />
+    <Content Include="Reports\Guest_Details_Room.aspx" />
+    <Content Include="Reports\Housekeeping.aspx" />
+    <Content Include="Reports\Room_Occupancy.aspx" />
+    <Content Include="Reports\Room_Status.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Route_Config.cs" />
+    <Compile Include="Dashboard.Master.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Master.designer.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Assign.aspx.cs">
+      <DependentUpon>Duty_Assign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Assign.aspx.designer.cs">
+      <DependentUpon>Duty_Assign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Add.aspx.cs">
+      <DependentUpon>Duty_Type_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Add.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Overview.aspx.cs">
+      <DependentUpon>Duty_Type_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Overview.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Add.aspx.cs">
+      <DependentUpon>Guest_Account_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Add.aspx.designer.cs">
+      <DependentUpon>Guest_Account_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Overview.aspx.cs">
+      <DependentUpon>Guest_Account_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Overview.aspx.designer.cs">
+      <DependentUpon>Guest_Account_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Add.aspx.cs">
+      <DependentUpon>Room_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Add.aspx.designer.cs">
+      <DependentUpon>Room_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Booking_Add.aspx.cs">
+      <DependentUpon>Room_Booking_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Booking_Add.aspx.designer.cs">
+      <DependentUpon>Room_Booking_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Booking_Overview.aspx.cs">
+      <DependentUpon>Room_Booking_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Booking_Overview.aspx.designer.cs">
+      <DependentUpon>Room_Booking_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Overview.aspx.cs">
+      <DependentUpon>Room_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Overview.aspx.designer.cs">
+      <DependentUpon>Room_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Add.aspx.cs">
+      <DependentUpon>Room_Type_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Add.aspx.designer.cs">
+      <DependentUpon>Room_Type_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Overview.aspx.cs">
+      <DependentUpon>Room_Type_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Overview.aspx.designer.cs">
+      <DependentUpon>Room_Type_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Add.aspx.cs">
+      <DependentUpon>Staff_Account_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Add.aspx.designer.cs">
+      <DependentUpon>Staff_Account_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Overview.aspx.cs">
+      <DependentUpon>Staff_Account_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Overview.aspx.designer.cs">
+      <DependentUpon>Staff_Account_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Staff_Record_Overview.aspx.cs">
+      <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Record_Overview.aspx.designer.cs">
+      <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomBookingDbManager.cs" />
+    <Compile Include="Models\RoomType.cs" />
+    <Compile Include="Models\StaffRecordsDbManager.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAccountDbManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Guest_Details_All.aspx.cs">
+      <DependentUpon>Guest_Details_All.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Guest_Details_All.aspx.designer.cs">
+      <DependentUpon>Guest_Details_All.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Guest_Details_Room.aspx.cs">
+      <DependentUpon>Guest_Details_Room.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Guest_Details_Room.aspx.designer.cs">
+      <DependentUpon>Guest_Details_Room.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Housekeeping.aspx.cs">
+      <DependentUpon>Housekeeping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Housekeeping.aspx.designer.cs">
+      <DependentUpon>Housekeeping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Room_Occupancy.aspx.cs">
+      <DependentUpon>Room_Occupancy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Room_Occupancy.aspx.designer.cs">
+      <DependentUpon>Room_Occupancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Room_Status.aspx.cs">
+      <DependentUpon>Room_Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Room_Status.aspx.designer.cs">
+      <DependentUpon>Room_Status.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dashboard.Master" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.responsive.scss" />
+    <Content Include="Assets\Styles\DataTables\css\dataTables.jqueryui.scss" />
+    <None Include="Properties\PublishProfiles\delonixregia__internal.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56927</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60000</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
