@@ -27,7 +27,6 @@
 
 	<div class="row">
 		<div class="col-md-12">
-
 			<asp:Repeater ID="rptTable" runat="server">
 				<HeaderTemplate>
 					<table class="table table-striped" id="dtbl">

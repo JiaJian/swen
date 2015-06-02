@@ -97,6 +97,12 @@ namespace DelonixRegiaHMS {
 				"~/Manage/Staff_Record_Overview.aspx"
 			);
 
+			routes.MapPageRoute(
+				"staff2",
+				"manage/staff-records/edit/{id}",
+				"~/Manage/Staff_Record_Edit.aspx"
+			);
+
 			// Housekeeping and Duties
 			routes.MapPageRoute(
 				"hk1",

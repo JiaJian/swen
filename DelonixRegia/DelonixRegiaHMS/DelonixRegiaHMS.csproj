@@ -182,6 +182,7 @@
     <Content Include="Manage\Room_Type_Overview.aspx" />
     <Content Include="Manage\Staff_Account_Add.aspx" />
     <Content Include="Manage\Staff_Account_Overview.aspx" />
+    <Content Include="Manage\Staff_Record_Edit.aspx" />
     <Content Include="Manage\Staff_Record_Overview.aspx" />
     <Content Include="packages.config" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
@@ -365,6 +366,13 @@
     </Compile>
     <Compile Include="Manage\Staff_Account_Overview.aspx.designer.cs">
       <DependentUpon>Staff_Account_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Staff_Record_Edit.aspx.cs">
+      <DependentUpon>Staff_Record_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Record_Edit.aspx.designer.cs">
+      <DependentUpon>Staff_Record_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Staff_Record_Overview.aspx.cs">
       <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
