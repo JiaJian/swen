@@ -8,8 +8,10 @@ using System.Web.Configuration;
 
 namespace DelonixRegiaHMS.Models {
 	class StaffRecordsDbManager {
+		/*
+		 * Methods for the staff records section.
+		 */
 		#region Staff Records Section
-
 		public List<User> GetAllStaffRecords() {
 			List<User> result = new List<User>();
 
@@ -113,11 +115,12 @@ namespace DelonixRegiaHMS.Models {
 				throw e;
 			}
 		}
-
 		#endregion
 
-		#region Duty and Housekeeping Section
-
+		/*
+		 * Methods for the duty type section.
+		 */
+		#region Duty Type Section
 		public List<DutyType> GetAllDutyTypes() {
 			List<DutyType> result = new List<DutyType>();
 
@@ -147,6 +150,90 @@ namespace DelonixRegiaHMS.Models {
 			return result;
 		}
 
+		public DutyType GetDutyTypeById(int id) {
+			DutyType dutyType = new DutyType();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_duty_type WHERE id = @id;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@id", id);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						dutyType.Id = (int)dr["id"];
+						dutyType.Name = (string)dr["name"];
+						dutyType.Information = (string)dr["information"];
+					} else {
+						dutyType = null;
+					}
+
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+
+			return dutyType;
+		}
+
+		public bool AddDutyType(DutyType dutyType) {
+			int rowsInserted = 0;
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "INSERT INTO tbl_duty_type(name, information) "
+									+ "VALUES(@name, @information)";
+
+					cmd.Parameters.AddWithValue("@name", dutyType.Name);
+					cmd.Parameters.AddWithValue("@information", dutyType.Information);
+
+					rowsInserted = cmd.ExecuteNonQuery();
+
+					return rowsInserted > 0;
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+		}
+
+		public bool UpdateDutyType(DutyType dutyType) {
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					// Our SQL command string builder.
+					string sqlCmd = "UPDATE tbl_duty_type SET name = @name, information = @information "
+							+ " WHERE id = @id;";
+
+					SqlCommand cmd = new SqlCommand(sqlCmd);
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@name", dutyType.Name);
+					cmd.Parameters.AddWithValue("@information", dutyType.Information);
+					cmd.Parameters.AddWithValue("@id", dutyType.Id);
+
+					return cmd.ExecuteNonQuery() > 0;
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+		}
+		#endregion
+
+		/*
+		 * Methods for the duty roster/housekeeping section.
+		 */
+		#region Housekeeping Section
 		public bool AddDutyRoster(DutyRoster dutyRoster) {
 			int rowsInserted = 0;
 
@@ -172,7 +259,6 @@ namespace DelonixRegiaHMS.Models {
 				}
 			}
 		}
-
 		#endregion
 	}
 }

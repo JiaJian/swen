@@ -170,6 +170,8 @@
     <Content Include="Logout.aspx" />
     <Content Include="Manage\Duty_Assign.aspx" />
     <Content Include="Manage\Duty_Type_Add.aspx" />
+    <Content Include="Manage\Duty_Type_Delete.aspx" />
+    <Content Include="Manage\Duty_Type_Edit.aspx" />
     <Content Include="Manage\Duty_Type_Overview.aspx" />
     <Content Include="Manage\Guest_Account_Add.aspx" />
     <Content Include="Manage\Guest_Account_Overview.aspx" />
@@ -276,6 +278,20 @@
     </Compile>
     <Compile Include="Manage\Duty_Type_Add.aspx.designer.cs">
       <DependentUpon>Duty_Type_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Delete.aspx.cs">
+      <DependentUpon>Duty_Type_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Delete.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Edit.aspx.cs">
+      <DependentUpon>Duty_Type_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Edit.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Duty_Type_Overview.aspx.cs">
       <DependentUpon>Duty_Type_Overview.aspx</DependentUpon>

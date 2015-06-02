@@ -40,22 +40,22 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMessage;
         
         /// <summary>
-        /// tbxEmail control.
+        /// tbxDutyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxDutyName;
         
         /// <summary>
-        /// Email1 control.
+        /// tbxDutyInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Email1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea tbxDutyInformation;
         
         /// <summary>
         /// btnSubmit control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Duty_Type_Add.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Duty_Type_Add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Duty_Type_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Duty_Type_Edit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
@@ -6,14 +6,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Add duty type</h1>
+			<h1 class="page-header">Edit duty type</h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
 				<strong>Success!</strong>
-				<p>A new duty type is added.</p>
+				<p>The duty type has been updated.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -41,8 +41,8 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-success" id="btnSubmit" runat="server">
-							<span class="glyphicon glyphicon-plus"></span>
-							Add duty type
+							<span class="glyphicon glyphicon-pencil"></span>
+							Save changes
 						</button>
 					</div>
 				</div>
