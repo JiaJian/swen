@@ -171,11 +171,14 @@
     <Content Include="Manage\Duty_Type_Overview.aspx" />
     <Content Include="Manage\Guest_Account_Add.aspx" />
     <Content Include="Manage\Guest_Account_Overview.aspx" />
-    <Content Include="Manage\Room_Add.aspx" />
+    <Content Include="Manage\Rooms_Add.aspx" />
+    <Content Include="Manage\Rooms_Edit.aspx" />
     <Content Include="Manage\Room_Booking_Add.aspx" />
     <Content Include="Manage\Room_Booking_Overview.aspx" />
-    <Content Include="Manage\Room_Overview.aspx" />
+    <Content Include="Manage\Rooms_Overview.aspx" />
     <Content Include="Manage\Room_Type_Add.aspx" />
+    <Content Include="Manage\Room_Type_Delete.aspx" />
+    <Content Include="Manage\Room_Type_Edit.aspx" />
     <Content Include="Manage\Room_Type_Overview.aspx" />
     <Content Include="Manage\Staff_Account_Add.aspx" />
     <Content Include="Manage\Staff_Account_Overview.aspx" />
@@ -286,12 +289,19 @@
     <Compile Include="Manage\Guest_Account_Overview.aspx.designer.cs">
       <DependentUpon>Guest_Account_Overview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Room_Add.aspx.cs">
-      <DependentUpon>Room_Add.aspx</DependentUpon>
+    <Compile Include="Manage\Rooms_Add.aspx.cs">
+      <DependentUpon>Rooms_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manage\Room_Add.aspx.designer.cs">
-      <DependentUpon>Room_Add.aspx</DependentUpon>
+    <Compile Include="Manage\Rooms_Add.aspx.designer.cs">
+      <DependentUpon>Rooms_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Rooms_Edit.aspx.cs">
+      <DependentUpon>Rooms_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Rooms_Edit.aspx.designer.cs">
+      <DependentUpon>Rooms_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Room_Booking_Add.aspx.cs">
       <DependentUpon>Room_Booking_Add.aspx</DependentUpon>
@@ -307,12 +317,12 @@
     <Compile Include="Manage\Room_Booking_Overview.aspx.designer.cs">
       <DependentUpon>Room_Booking_Overview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Room_Overview.aspx.cs">
-      <DependentUpon>Room_Overview.aspx</DependentUpon>
+    <Compile Include="Manage\Rooms_Overview.aspx.cs">
+      <DependentUpon>Rooms_Overview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manage\Room_Overview.aspx.designer.cs">
-      <DependentUpon>Room_Overview.aspx</DependentUpon>
+    <Compile Include="Manage\Rooms_Overview.aspx.designer.cs">
+      <DependentUpon>Rooms_Overview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Room_Type_Add.aspx.cs">
       <DependentUpon>Room_Type_Add.aspx</DependentUpon>
@@ -320,6 +330,20 @@
     </Compile>
     <Compile Include="Manage\Room_Type_Add.aspx.designer.cs">
       <DependentUpon>Room_Type_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Delete.aspx.cs">
+      <DependentUpon>Room_Type_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Delete.aspx.designer.cs">
+      <DependentUpon>Room_Type_Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Edit.aspx.cs">
+      <DependentUpon>Room_Type_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Room_Type_Edit.aspx.designer.cs">
+      <DependentUpon>Room_Type_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Room_Type_Overview.aspx.cs">
       <DependentUpon>Room_Type_Overview.aspx</DependentUpon>
@@ -349,6 +373,7 @@
     <Compile Include="Manage\Staff_Record_Overview.aspx.designer.cs">
       <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReportsDbManager.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBookingDbManager.cs" />
     <Compile Include="Models\RoomType.cs" />

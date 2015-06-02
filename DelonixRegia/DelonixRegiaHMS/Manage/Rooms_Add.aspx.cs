@@ -7,14 +7,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DelonixRegiaHMS.Manage {
-	public partial class Room_Add : System.Web.UI.Page {
-
+	public partial class Rooms_Add : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-			// Programmatically add a server click handler to a HTML server control.
 			btnSubmit.ServerClick += new EventHandler(btnSubmit_ServerClick);
 
 			if (!IsPostBack) {
-
+				ddlRoomType.DataTextField = "type";
+				ddlRoomType.DataValueField = "id";
+				ddlRoomType.DataSource = new RoomBookingDbManager().GetAllRoomTypes();
+				ddlRoomType.DataBind();
 			}
 		}
 
@@ -26,14 +27,13 @@ namespace DelonixRegiaHMS.Manage {
 				if (!string.IsNullOrEmpty(tbxRoomNumber.Value)) {
 
 					room.RoomNumber = tbxRoomNumber.Value;
-					room.RoomTypeId = ddlRoomType.SelectedIndex;
-					room.Status = ddlStatus.SelectedIndex;
+					room.RoomTypeId = Int32.Parse(ddlRoomType.Value);
+					room.Status = Int32.Parse(ddlStatus.Value);
 
 					if (new RoomBookingDbManager().AddRoom(room)) {
 						alertSuccess.Visible = true;
 						alertError.Visible = false;
 					}
-
 				} else {
 					lblMessage.InnerText = "Unable to save this record!";
 					alertError.Visible = true;

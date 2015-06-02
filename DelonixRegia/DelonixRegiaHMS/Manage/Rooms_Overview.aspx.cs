@@ -1,16 +1,15 @@
 ﻿using DelonixRegiaHMS.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DelonixRegiaHMS.Manage {
-	public partial class Room_Type_Overview : System.Web.UI.Page {
+	public partial class Rooms_Overview : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-			rptTable.DataSource = new RoomBookingDbManager().GetAllRoomTypes();
+			rptTable.DataSource = new RoomBookingDbManager().GetAllRooms();
 			rptTable.DataBind();
 
 			if (Session["alert_error"] != null) {
@@ -26,7 +25,7 @@ namespace DelonixRegiaHMS.Manage {
 
 			if (Session["deleted"] != null) {
 				if ((bool)Session["deleted"] == true) {
-					lblMessageSuccess.InnerText = "Successfully deleted the room type!";
+					lblMessageSuccess.InnerText = "Successfully deleted the room record!";
 
 					alertSuccess.Visible = true;
 					alertError.Visible = false;
@@ -41,6 +40,17 @@ namespace DelonixRegiaHMS.Manage {
 					Session["deleted"] = null; // Reset the value back to null.
 				}
 			}
+		}
+
+		public string GetStatusDescription(int id) {
+			if (id == 1) {
+				return "<span class=\"label label-success\">Vacant</span>";
+			} else if (id == 1) {
+				return "<span class=\"label label-danger\">Occupied</span>";
+			} else if (id == 1) {
+				return "<span class=\"label label-warning\">Vacant (Scheduled for Cleaning)</span>";
+			}
+			return "No status";
 		}
 	}
 }

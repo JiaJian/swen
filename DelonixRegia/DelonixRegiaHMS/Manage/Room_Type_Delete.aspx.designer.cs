@@ -10,6 +10,6 @@
 namespace DelonixRegiaHMS.Manage {
 
 
-	public partial class Room_Overview {
+	public partial class Room_Type_Delete {
 	}
 }
