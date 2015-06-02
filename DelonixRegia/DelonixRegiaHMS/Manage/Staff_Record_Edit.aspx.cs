@@ -17,7 +17,7 @@ namespace DelonixRegiaHMS.Manage {
 						int tmpId;
 
 						if (Int32.TryParse(!string.IsNullOrEmpty(Request.QueryString["id"]) ? Request.QueryString["id"].ToString() : Page.RouteData.Values["id"] as string, out tmpId)) {
-							User user = new User();
+							User user = new StaffRecordsDbManager().GetStaffRecordById(tmpId);
 
 							tbxEmail.Value = user.Email;
 							tbxFirstName.Value = user.FirstName;
@@ -51,13 +51,18 @@ namespace DelonixRegiaHMS.Manage {
 					&& !string.IsNullOrEmpty(tbxBankAccountNumber.Value)) {
 
 					user.Id = Int32.Parse(Page.RouteData.Values["id"] as string);
-					//roomType.Type = tbxRoomType.Value;
-					//roomType.Rate = Double.Parse(tbxRoomRate.Value);
+					user.Email = tbxEmail.Value;
+					user.FirstName = tbxFirstName.Value;
+					user.LastName = tbxLastName.Value;
+					user.Address = tbxAddress.Value;
+					user.PostalCode = tbxPostalCode.Value;
+					user.BankName = ddlBankName.Value;
+					user.BankAccountNumber = tbxBankAccountNumber.Value;
 
-					//if (new RoomBookingDbManager().UpdateRoomType(roomType)) {
-					//	alertSuccess.Visible = true;
-					//	alertError.Visible = false;
-					//}
+					if (new StaffRecordsDbManager().UpdateStaffRecord(user)) {
+						alertSuccess.Visible = true;
+						alertError.Visible = false;
+					}
 				} else {
 					lblMessage.InnerText = "Unable to save this record!";
 					alertError.Visible = true;

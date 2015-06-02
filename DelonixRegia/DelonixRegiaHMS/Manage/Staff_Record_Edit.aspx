@@ -15,7 +15,7 @@
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
 				<strong>Success!</strong>
-				<p>Staff record updated</p>
+				<p>Staff record updated.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>

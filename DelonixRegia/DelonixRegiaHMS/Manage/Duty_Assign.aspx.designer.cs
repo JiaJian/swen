@@ -40,40 +40,40 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMessage;
         
         /// <summary>
-        /// Select2 control.
+        /// ddlStaffList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlStaffList;
         
         /// <summary>
-        /// Select1 control.
+        /// ddlDutyType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlDutyType;
         
         /// <summary>
-        /// tbxStartDate control.
+        /// tbxDutyStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxDutyStart;
         
         /// <summary>
-        /// Text1 control.
+        /// tbxDutyEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxDutyEnd;
         
         /// <summary>
         /// btnSubmit control.

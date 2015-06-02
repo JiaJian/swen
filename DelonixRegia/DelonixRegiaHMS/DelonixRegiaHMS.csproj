@@ -159,6 +159,8 @@
     <Content Include="Assets\Styles\DataTables\images\xls_hover.png" />
     <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls.swf" />
     <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Assets\Styles\bootstrap-datetimepicker.css" />
+    <Content Include="Assets\Styles\bootstrap-datetimepicker.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
@@ -220,6 +222,12 @@
     <Content Include="Reports\Housekeeping.aspx" />
     <Content Include="Reports\Room_Occupancy.aspx" />
     <Content Include="Reports\Room_Status.aspx" />
+    <Content Include="Assets\Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Assets\Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Assets\Scripts\moment-with-locales.js" />
+    <Content Include="Assets\Scripts\moment-with-locales.min.js" />
+    <Content Include="Assets\Scripts\moment.js" />
+    <Content Include="Assets\Scripts\moment.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -381,6 +389,8 @@
     <Compile Include="Manage\Staff_Record_Overview.aspx.designer.cs">
       <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DutyRoster.cs" />
+    <Compile Include="Models\DutyType.cs" />
     <Compile Include="Models\ReportsDbManager.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBookingDbManager.cs" />

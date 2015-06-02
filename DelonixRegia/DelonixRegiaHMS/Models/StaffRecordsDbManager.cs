@@ -46,6 +46,43 @@ namespace DelonixRegiaHMS.Models {
 			return result;
 		}
 
+		public User GetStaffRecordById(int id) {
+			User user = new User();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT tbl_staff.*, tbl_staff_role.name FROM tbl_staff, tbl_staff_role WHERE tbl_staff.role_id = tbl_staff_role.id AND tbl_staff.id = @id;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@id", id);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						user.Id = (int)dr["id"];
+						user.FirstName = (string)dr["first_name"];
+						user.LastName = (string)dr["last_name"];
+						user.Email = (string)dr["email"];
+						user.Address = (string)dr["address"];
+						user.PostalCode = (string)dr["postal_code"];
+						user.BankName = (string)dr["bank_name"];
+						user.BankAccountNumber = (string)dr["bank_account_number"];
+						user.RoleId = (int)dr["role_id"];
+						user.RoleName = (string)dr["name"];
+					} else {
+						user = null;
+					}
+
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+
+			return user;
+		}
 
 		public bool UpdateStaffRecord(User user) {
 			try {
@@ -61,7 +98,7 @@ namespace DelonixRegiaHMS.Models {
 
 					cmd.Connection = connection;
 
-					cmd.Parameters.AddWithValue("@firstName", user.Id);
+					cmd.Parameters.AddWithValue("@firstName", user.FirstName);
 					cmd.Parameters.AddWithValue("@lastName", user.LastName);
 					cmd.Parameters.AddWithValue("@email", user.Email);
 					cmd.Parameters.AddWithValue("@address", user.Address);
@@ -74,6 +111,65 @@ namespace DelonixRegiaHMS.Models {
 				}
 			} catch (SqlException e) {
 				throw e;
+			}
+		}
+
+		#endregion
+
+		#region Duty and Housekeeping Section
+
+		public List<DutyType> GetAllDutyTypes() {
+			List<DutyType> result = new List<DutyType>();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT * FROM tbl_duty_type;";
+
+					SqlDataReader dr = cmd.ExecuteReader();
+					while (dr.Read()) {
+						DutyType dutyType = new DutyType();
+
+						dutyType.Id = (int)dr["id"];
+						dutyType.Name = (string)dr["name"];
+						dutyType.Information = (string)dr["information"];
+
+						result.Add(dutyType);
+					}
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
+		}
+
+		public bool AddDutyRoster(DutyRoster dutyRoster) {
+			int rowsInserted = 0;
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "INSERT INTO tbl_duty_roster(staff_id, duty_id, duty_start, duty_end) "
+									+ "VALUES(@staffId, @dutyId, @dutyStart, @dutyEnd)";
+
+					cmd.Parameters.AddWithValue("@staffId", dutyRoster.StaffId);
+					cmd.Parameters.AddWithValue("@dutyId", dutyRoster.DutyTypeId);
+					cmd.Parameters.AddWithValue("@dutyStart", dutyRoster.DutyStart);
+					cmd.Parameters.AddWithValue("@dutyEnd", dutyRoster.DutyEnd);
+
+					rowsInserted = cmd.ExecuteNonQuery();
+
+					return rowsInserted > 0;
+				} catch (SqlException e) {
+					throw e;
+				}
 			}
 		}
 
