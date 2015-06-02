@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,82 @@ namespace DelonixRegiaHMS.Models {
 			}
 
 			return user;
+		}
+
+		public List<User> GetAllUsers() {
+			List<User> result = new List<User>();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT tbl_staff.*, tbl_staff_role.name FROM tbl_staff, tbl_staff_role WHERE tbl_staff.role_id = tbl_staff_role.id;";
+
+					SqlDataReader dr = cmd.ExecuteReader();
+					while (dr.Read()) {
+						User user = new User();
+
+						user.Id = (int)dr["id"];
+						user.FirstName = (string)dr["first_name"];
+						user.LastName = (string)dr["last_name"];
+						user.Email = (string)dr["email"];
+						user.Address = (string)dr["address"];
+						user.PostalCode = (string)dr["postal_code"];
+						user.BankName = (string)dr["bank_name"];
+						user.BankAccountNumber = (string)dr["bank_account_number"];
+						user.RoleId = (int)dr["role_id"];
+						user.RoleName = (string)dr["name"];
+
+						result.Add(user);
+					}
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
+		}
+
+		public DataTable GetUsersByRoleId(int roleId) {
+			DataTable result = new DataTable();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT tbl_staff.*, tbl_staff_role.name FROM tbl_staff, tbl_staff_role WHERE tbl_staff.role_id = tbl_staff_role.id AND tbl_staff.role_id = @roleId;";
+
+					cmd.Parameters.AddWithValue("@roleId", roleId);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					result.Load(dr);
+					/*while (dr.Read()) {
+						User user = new User();
+
+						user.Id = (int)dr["id"];
+						user.FirstName = (string)dr["first_name"];
+						user.LastName = (string)dr["last_name"];
+						user.Email = (string)dr["email"];
+						user.Address = (string)dr["address"];
+						user.PostalCode = (string)dr["postal_code"];
+						user.BankName = (string)dr["bank_name"];
+						user.BankAccountNumber = (string)dr["bank_account_number"];
+						user.RoleId = (int)dr["role_id"];
+						user.RoleName = (string)dr["name"];
+
+						result.(user);
+					}*/
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
 		}
 
 		#endregion

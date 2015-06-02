@@ -10,7 +10,7 @@
 namespace DelonixRegiaHMS.Manage {
     
     
-    public partial class Duty_Assign {
+    public partial class Staff_Record_Edit {
         
         /// <summary>
         /// alertSuccess control.
@@ -40,40 +40,67 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMessage;
         
         /// <summary>
-        /// ddlStaffList control.
+        /// tbxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlStaffList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxEmail;
         
         /// <summary>
-        /// ddlDutyType control.
+        /// tbxFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlDutyType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxFirstName;
         
         /// <summary>
-        /// tbxDutyStart control.
+        /// tbxLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxDutyStart;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxLastName;
         
         /// <summary>
-        /// tbxDutyEnd control.
+        /// tbxAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxDutyEnd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxAddress;
+        
+        /// <summary>
+        /// tbxPostalCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxPostalCode;
+        
+        /// <summary>
+        /// ddlBankName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlBankName;
+        
+        /// <summary>
+        /// tbxBankAccountNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxBankAccountNumber;
         
         /// <summary>
         /// btnSubmit control.

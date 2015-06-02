@@ -11,7 +11,7 @@ namespace DelonixRegiaHMS.Manage {
 		protected void Page_Load(object sender, EventArgs e) {
 			btnSubmit.ServerClick += new EventHandler(btnSubmit_ServerClick);
 
-			if (!IsPostBack) {
+			if (!Page.IsPostBack) {
 
 			}
 		}

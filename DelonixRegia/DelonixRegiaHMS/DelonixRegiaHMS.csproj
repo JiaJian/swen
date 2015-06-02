@@ -159,6 +159,8 @@
     <Content Include="Assets\Styles\DataTables\images\xls_hover.png" />
     <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls.swf" />
     <Content Include="Assets\Styles\DataTables\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Assets\Styles\bootstrap-datetimepicker.css" />
+    <Content Include="Assets\Styles\bootstrap-datetimepicker.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
@@ -168,6 +170,8 @@
     <Content Include="Logout.aspx" />
     <Content Include="Manage\Duty_Assign.aspx" />
     <Content Include="Manage\Duty_Type_Add.aspx" />
+    <Content Include="Manage\Duty_Type_Delete.aspx" />
+    <Content Include="Manage\Duty_Type_Edit.aspx" />
     <Content Include="Manage\Duty_Type_Overview.aspx" />
     <Content Include="Manage\Guest_Account_Add.aspx" />
     <Content Include="Manage\Guest_Account_Overview.aspx" />
@@ -182,6 +186,7 @@
     <Content Include="Manage\Room_Type_Overview.aspx" />
     <Content Include="Manage\Staff_Account_Add.aspx" />
     <Content Include="Manage\Staff_Account_Overview.aspx" />
+    <Content Include="Manage\Staff_Record_Edit.aspx" />
     <Content Include="Manage\Staff_Record_Overview.aspx" />
     <Content Include="packages.config" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
@@ -219,6 +224,12 @@
     <Content Include="Reports\Housekeeping.aspx" />
     <Content Include="Reports\Room_Occupancy.aspx" />
     <Content Include="Reports\Room_Status.aspx" />
+    <Content Include="Assets\Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Assets\Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Assets\Scripts\moment-with-locales.js" />
+    <Content Include="Assets\Scripts\moment-with-locales.min.js" />
+    <Content Include="Assets\Scripts\moment.js" />
+    <Content Include="Assets\Scripts\moment.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +278,20 @@
     </Compile>
     <Compile Include="Manage\Duty_Type_Add.aspx.designer.cs">
       <DependentUpon>Duty_Type_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Delete.aspx.cs">
+      <DependentUpon>Duty_Type_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Delete.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Edit.aspx.cs">
+      <DependentUpon>Duty_Type_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Type_Edit.aspx.designer.cs">
+      <DependentUpon>Duty_Type_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Duty_Type_Overview.aspx.cs">
       <DependentUpon>Duty_Type_Overview.aspx</DependentUpon>
@@ -366,6 +391,13 @@
     <Compile Include="Manage\Staff_Account_Overview.aspx.designer.cs">
       <DependentUpon>Staff_Account_Overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\Staff_Record_Edit.aspx.cs">
+      <DependentUpon>Staff_Record_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Record_Edit.aspx.designer.cs">
+      <DependentUpon>Staff_Record_Edit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\Staff_Record_Overview.aspx.cs">
       <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -373,6 +405,8 @@
     <Compile Include="Manage\Staff_Record_Overview.aspx.designer.cs">
       <DependentUpon>Staff_Record_Overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DutyRoster.cs" />
+    <Compile Include="Models\DutyType.cs" />
     <Compile Include="Models\ReportsDbManager.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBookingDbManager.cs" />

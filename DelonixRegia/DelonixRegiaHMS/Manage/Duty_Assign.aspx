@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Duty_Assign.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Duty_Assign" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+	Assign duty
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
@@ -12,8 +14,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
-				<strong>Yay!</strong>
-				<p>We added in the user already and have also sent an email to notify them.</p>
+				<strong>Success!</strong>
+				<p>Assigned a new duty for the staff! An email has also been sent to notify them.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -25,29 +27,27 @@
 		<div class="col-md-8">
 			<div class="form-horizontal">
 				<div class="form-group">
-					<label for="tbxFullName" class="col-sm-2 control-label">Maintenance Staff</label>
+					<label for="ddlStaffList" class="col-sm-2 control-label">Maintenance Staff</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlFAK" id="Select2" runat="server">
-							<option>Sim Jia Zhi (noodlelord@gmail.com)</option>
+						<select class="form-control" name="ddlStaffList" id="ddlStaffList" runat="server">
 						</select>
 					</div>
 				</div>
 
-				
+
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Duty</label>
+					<label for="ddlDutyType" class="col-sm-2 control-label">Duty</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlUserLevel" id="Select1" runat="server">
-							<option>General Maintenance</option>
+						<select class="form-control" name="ddlDutyType" id="ddlDutyType" runat="server">
 						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Duty Start</label>
+					<label for="tbxDutyStart" class="col-sm-2 control-label">Duty Start</label>
 					<div class="col-sm-10">
-						<div class="input-group date" id="datetimepicker1" data-date-format="DD-MM-YYYY">
-							<input type="text" class="form-control" id="tbxStartDate" placeholder="The duty starting date and time" runat="server">
+						<div class="input-group date" id="datetimepicker1">
+							<input type="text" class="form-control" id="tbxDutyStart" placeholder="The duty starting date and time" runat="server">
 							<span class="input-group-addon"><span class="fa fa-calendar"></span>
 							</span>
 						</div>
@@ -55,10 +55,10 @@
 				</div>
 
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Duty End</label>
+					<label for="tbxDutyEnd" class="col-sm-2 control-label">Duty End</label>
 					<div class="col-sm-10">
-						<div class="input-group date" id="datetimepicker2" data-date-format="DD-MM-YYYY">
-							<input type="text" class="form-control" id="Text1" placeholder="The duty ending date and time" runat="server">
+						<div class="input-group date" id="datetimepicker2">
+							<input type="text" class="form-control" id="tbxDutyEnd" placeholder="The duty ending date and time" runat="server">
 							<span class="input-group-addon"><span class="fa fa-calendar"></span>
 							</span>
 						</div>
@@ -78,4 +78,21 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script src="/Assets/Scripts/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			$('#datetimepicker1').datetimepicker({
+				format: 'DD/MM/YYYY HH:mm'
+			});
+			$('#datetimepicker2').datetimepicker({
+				format: 'DD/MM/YYYY HH:mm'
+			});
+			$("#datetimepicker1").on("dp.change", function (e) {
+				$('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+			});
+			$("#datetimepicker2").on("dp.change", function (e) {
+				$('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+			});
+		});
+	</script>
 </asp:Content>

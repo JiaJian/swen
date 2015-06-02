@@ -97,6 +97,12 @@ namespace DelonixRegiaHMS {
 				"~/Manage/Staff_Record_Overview.aspx"
 			);
 
+			routes.MapPageRoute(
+				"staff2",
+				"manage/staff-records/edit/{id}",
+				"~/Manage/Staff_Record_Edit.aspx"
+			);
+
 			// Housekeeping and Duties
 			routes.MapPageRoute(
 				"hk1",
@@ -104,12 +110,11 @@ namespace DelonixRegiaHMS {
 				"~/Manage/Duty_Assign.aspx"
 			);
 
-				// [NOT IMPLEMENTED YET]
-				routes.MapPageRoute(
-					"hk2",
-					"manage/duty",
-					"~/Manage/Duty_Roster.aspx"
-				);
+			routes.MapPageRoute(
+				"hk2",
+				"manage/duty",
+				"~/Manage/Duty_Roster.aspx"
+			);
 
 			routes.MapPageRoute(
 				"hk3",
@@ -121,6 +126,18 @@ namespace DelonixRegiaHMS {
 				"hk4",
 				"manage/duty-type",
 				"~/Manage/Duty_Type_Overview.aspx"
+			);
+
+			routes.MapPageRoute(
+				"hk5",
+				"manage/duty-type/edit/{id}",
+				"~/Manage/Duty_Type_Edit.aspx"
+			);
+
+			routes.MapPageRoute(
+				"hk6",
+				"manage/duty-type/delete/{id}",
+				"~/Manage/Duty_Type_Delete.aspx"
 			);
 
 

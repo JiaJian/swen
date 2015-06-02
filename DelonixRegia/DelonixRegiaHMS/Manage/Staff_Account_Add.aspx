@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
-				<strong>Yay!</strong>
+				<strong>Success!</strong>
 				<p>We added in the user already and have also sent an email to notify them.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
