@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Rooms_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Rooms_Edit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
 	Edit room record
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-		<div class="row">
+	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Edit room record</h1>
 		</div>
@@ -36,7 +37,6 @@
 					<label for="ddlRoomType" class="col-sm-2 control-label">Room Type</label>
 					<div class="col-sm-10">
 						<select class="form-control" name="ddlRoomType" id="ddlRoomType" runat="server">
-
 						</select>
 					</div>
 				</div>
@@ -65,4 +65,27 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxRoomNumber: {
+						validators: {
+							notEmpty: {
+								message: 'The room number is required!'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </asp:Content>

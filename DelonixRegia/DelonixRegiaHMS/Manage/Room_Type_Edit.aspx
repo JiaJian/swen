@@ -56,4 +56,39 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxRoomType: {
+						validators: {
+							notEmpty: {
+								message: 'The room type name is required!'
+							}
+						}
+					},
+
+					ctl00$MainContent$tbxRoomRate: {
+						validators: {
+							notEmpty: {
+								message: 'The room rate is required!'
+							},
+
+							numeric: {
+								message: 'The room rate must be numeric! We accept decimals as well.'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </asp:Content>

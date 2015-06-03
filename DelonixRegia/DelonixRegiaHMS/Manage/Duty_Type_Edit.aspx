@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Duty_Type_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Duty_Type_Edit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
@@ -30,7 +31,7 @@
 						<input type="text" class="form-control" name="tbxDutyName" id="tbxDutyName" placeholder="The duty name (e.g. Estate Maintenance)" required tabindex="1" runat="server" autofocus>
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label for="tbxDutyInformation" class="col-sm-2 control-label">Duty Information</label>
 					<div class="col-sm-10">
@@ -51,4 +52,35 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxDutyName: {
+						validators: {
+							notEmpty: {
+								message: 'The duty name is required!'
+							}
+						}
+					},
+
+					ctl00$MainContent$tbxDutyInformation: {
+						validators: {
+							notEmpty: {
+								message: 'The duty description is required!'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </asp:Content>

@@ -11,7 +11,6 @@ namespace DelonixRegiaHMS.Manage {
 		protected void Page_Load(object sender, EventArgs e) {
 			btnSubmit.ServerClick += new EventHandler(btnSubmit_ServerClick);
 
-
 		}
 
 		protected void btnSubmit_ServerClick(object sender, EventArgs e) {

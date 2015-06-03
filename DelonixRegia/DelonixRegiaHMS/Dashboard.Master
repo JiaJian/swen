@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="/Assets/Styles/dashboard.css" />
 	<link rel="stylesheet" href="/Assets/Styles/metisMenu.min.css" />
 	<link rel="stylesheet" href="/Assets/Styles/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="/Assets/Styles/formValidation.min.css" />
 
 	<link rel="stylesheet" href="/Assets/Styles/DataTables/css/dataTables.bootstrap.css" />
 
@@ -216,6 +217,9 @@
 		<script type="text/javascript" charset="utf-8" src="/Assets/Scripts/metisMenu.min.js"></script>
 
 		<script type="text/javascript" charset="utf-8" src="/Assets/Scripts/moment.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="/Assets/Scripts/formValidation.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/Assets/Scripts/framework/bootstrap.min.js"></script>
 
 		<script src="/Assets/Scripts/DataTables/jquery.dataTables.min.js"></script>
 		<script src="/Assets/Scripts/DataTables/dataTables.bootstrap.js"></script>

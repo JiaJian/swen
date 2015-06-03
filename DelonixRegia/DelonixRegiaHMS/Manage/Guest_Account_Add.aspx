@@ -57,7 +57,7 @@
 				<div class="form-group">
 					<label for="tbxAddress" class="col-sm-2 control-label">Address</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxAddress" id="tbxAddress" placeholder="The address guest" required runat="server">
+						<input type="text" class="form-control" name="tbxAddress" id="tbxAddress" placeholder="The address of the guest" required runat="server">
 					</div>
 				</div>
 
@@ -92,4 +92,73 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxEmail: {
+						validators: {
+							notEmpty: {
+								message: 'The email address is required!'
+							},
+							emailAddress: {
+								message: 'This is not a valid email address!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxPassword: {
+						validators: {
+							notEmpty: {
+								message: 'The password is required!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxFirstName: {
+						validators: {
+							notEmpty: {
+								message: 'The first name is required!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxLastName: {
+						validators: {
+							notEmpty: {
+								message: 'The last name is required!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxAddress: {
+						validators: {
+							notEmpty: {
+								message: 'The address is required!'
+							}
+						}
+					},
+
+					ctl00$MainContent$tbxPostalCode: {
+						validators: {
+							notEmpty: {
+								message: 'The postal code is required!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxCountry: {
+						validators: {
+							notEmpty: {
+								message: 'The country is required!'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </asp:Content>
