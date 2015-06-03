@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label class="control-label">Date</label>
 							<div class="input-group date" id="datepicker1">
-								<input type="text" class="form-control" id="tbxCheckInDate" data-date-format="DD/MM/YYYY" value="21/01/2015" />
+								<input type="text" class="form-control" id="tbx" data-date-format="DD/MM/YYYY" value="21/01/2015" />
 								<span class="input-group-addon"><span class="fa fa-calendar" id="hack1"></span></span>
 							</div>
 						</div>
