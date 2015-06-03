@@ -1,13 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Staff_Account_Add.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Staff_Account_Add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Staff_Account_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Staff_Account_Edit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
-	Create staff account
+	Edit staff account
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Create staff account</h1>
+			<h1 class="page-header">Edit staff account</h1>
 		</div>
 	</div>
 
@@ -28,7 +29,7 @@
 		<div class="col-md-8">
 			<div class="form-horizontal">
 				<div class="form-group">
-					<label for="tbxEmail" class="col-sm-2 control-label">Email Address</label>
+					<label for="tbxFullName" class="col-sm-2 control-label">Email Address</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="tbxEmail" id="tbxEmail" placeholder="The email address of the employee (this will be the login ID)" required runat="server" autofocus>
 					</div>
@@ -106,8 +107,8 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-success" id="btnSubmit" runat="server">
-							<span class="glyphicon glyphicon-plus"></span>
-							Create staff account
+							<span class="glyphicon glyphicon-pencil"></span>
+							Edit staff account
 						</button>
 					</div>
 				</div>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Staff_Account_Overview.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Staff_Account_Overview" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+	Overview of all staff accounts
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
@@ -13,81 +14,118 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-striped" id="dtbl">
-				<thead>
+
+			<asp:Repeater ID="rptTable" runat="server">
+				<HeaderTemplate>
+					<table class="table table-striped" id="dtbl">
+						<thead>
+							<tr>
+								<th>Staff ID</th>
+								<th>Full Name</th>
+								<th>Email Address</th>
+								<th>Account Role</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+				</HeaderTemplate>
+				<ItemTemplate>
 					<tr>
-						<th>Staff ID</th>
-						<th>Full Name</th>
-						<th>Email Address</th>
-						<th>Account Role</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>James Wang</td>
-						<td><a href="#">james@delonixregia.com</a></td>
-						<td>Administrator</td>
+						<td><%# Eval("id") %></td>
 						<td>
-							<a href="/manage/user/view/<%# Eval("user_id") %>" class="btn btn-info">
+							<p><%# Eval("FirstName") %> <%# Eval("LastName") %></p>
+						</td>
+						<td>
+							<p>
+								<a href="mailto:<%# Eval("Email") %>"><%# Eval("Email") %></a>
+							</p>
+						</td>
+						<td>
+							<p>
+								<%# Eval("RoleName") %>
+							</p>
+						</td>
+						<td>
+							<a href="/manage/staff-accounts/reset-pw/<%# Eval("id") %>" class="btn btn-info">
 								<span class="fa fa-refresh"></span>
 								Reset Password
 							</a>
-							<a href="/manage/user/edit/<%# Eval("user_id") %>" class="btn btn-warning">
+							<a href="/manage/staff-accounts/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit
 							</a>
-							<a data-href="/manage/user/delete/<%# Eval("user_id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
+							<a data-href="/manage/staff-accounts/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
 								<span class="glyphicon glyphicon-trash"></span>
 								Delete
 							</a>
 						</td>
 					</tr>
+				</ItemTemplate>
+				<AlternatingItemTemplate>
 					<tr>
-						<td>2</td>
-						<td>Sim Jia Zhi</td>
-						<td><a href="#">sim.jiazhi@gmail.com</a></td>
-						<td>Maintenance Crew</td>
+						<td><%# Eval("id") %></td>
 						<td>
-							<a href="/manage/user/view/<%# Eval("user_id") %>" class="btn btn-info">
+							<p><%# Eval("FirstName") %> <%# Eval("LastName") %></p>
+						</td>
+						<td>
+							<p>
+								<a href="mailto:<%# Eval("Email") %>"><%# Eval("Email") %></a>
+							</p>
+						</td>
+						<td>
+							<p>
+								<%# Eval("RoleName") %>
+							</p>
+						</td>
+						<td>
+							<a href="/manage/staff-accounts/reset-pw/<%# Eval("id") %>" class="btn btn-info">
 								<span class="fa fa-refresh"></span>
 								Reset Password
 							</a>
-							<a href="/manage/user/edit/<%# Eval("user_id") %>" class="btn btn-warning">
+							<a href="/manage/staff-accounts/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit
 							</a>
-							<a data-href="/manage/user/delete/<%# Eval("user_id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
+							<a data-href="/manage/staff-accounts/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
 								<span class="glyphicon glyphicon-trash"></span>
 								Delete
 							</a>
 						</td>
 					</tr>
-					<tr>
-						<td>3</td>
-						<td>Goi Jia Jian</td>
-						<td><a href="#">its@jiajian.me</a></td>
-						<td>Management</td>
-						<td>
-							<a href="/manage/user/view/<%# Eval("user_id") %>" class="btn btn-info">
-								<span class="fa fa-refresh"></span>
-								Reset Password
-							</a>
-							<a href="/manage/user/edit/<%# Eval("user_id") %>" class="btn btn-warning">
-								<span class="glyphicon glyphicon-pencil"></span>
-								Edit
-							</a>
-							<a data-href="/manage/user/delete/<%# Eval("user_id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
-								<span class="glyphicon glyphicon-trash"></span>
-								Delete
-							</a>
-						</td>
-					</tr>
-				</tbody>
+				</AlternatingItemTemplate>
+				<FooterTemplate>
+					</tbody>
 			</table>
+				</FooterTemplate>
+			</asp:Repeater>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Confirm deletion</h4>
+				</div>
+				<div class="modal-body">
+					Are you sure you want to delete the record?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">No please</button>
+					<a href="#" class="btn btn-danger really-confirm-delete">Delete</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$('#confirm-delete').on('show.bs.modal', function (e) {
+			$(this).find('.really-confirm-delete').attr('href', $(e.relatedTarget).data('href'));
+		});
+	</script>
 </asp:Content>
