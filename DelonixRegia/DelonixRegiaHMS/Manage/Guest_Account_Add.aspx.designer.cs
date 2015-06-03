@@ -49,58 +49,58 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText tbxEmail;
         
         /// <summary>
-        /// Text5 control.
+        /// tbxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Text5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbxPassword;
         
         /// <summary>
-        /// Text1 control.
+        /// tbxFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxFirstName;
         
         /// <summary>
-        /// Text2 control.
+        /// tbxLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxLastName;
         
         /// <summary>
-        /// Text3 control.
+        /// tbxAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxAddress;
         
         /// <summary>
-        /// Text4 control.
+        /// tbxPostalCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxPostalCode;
         
         /// <summary>
-        /// Select2 control.
+        /// tbxCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxCountry;
         
         /// <summary>
         /// btnSubmit control.

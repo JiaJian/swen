@@ -9,7 +9,76 @@ using System.Web.Configuration;
 
 namespace DelonixRegiaHMS.Models {
 	class UserAccountDbManager {
-		#region User Accounts and Authentication Module
+
+		#region Managing Guest Accounts (User Accounts and Authentication Module)
+
+		public bool AddGuest(Guest guest) {
+			int rowsInserted = 0;
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "INSERT INTO tbl_guest(first_name, last_name, email, password, address, postal_code, country) "
+									+ "VALUES(@firstName, @lastName, @email, @password, @address, @postalCode, @country)";
+
+					// guest.Password = Hash.HashPassword(guest.Password);
+
+					cmd.Parameters.AddWithValue("@firstName", guest.FirstName);
+					cmd.Parameters.AddWithValue("@lastName", guest.LastName);
+					cmd.Parameters.AddWithValue("@email", guest.Email);
+					cmd.Parameters.AddWithValue("@password", guest.Password);
+					cmd.Parameters.AddWithValue("@address", guest.Address);
+					cmd.Parameters.AddWithValue("@postalCode", guest.PostalCode);
+					cmd.Parameters.AddWithValue("@country", guest.Country);
+
+					rowsInserted = cmd.ExecuteNonQuery();
+
+					return rowsInserted > 0;
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+		}
+
+		public List<Guest> GetAllGuests() {
+			List<Guest> result = new List<Guest>();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT * FROM tbl_guest;";
+
+					SqlDataReader dr = cmd.ExecuteReader();
+					while (dr.Read()) {
+						Guest guest = new Guest();
+
+						guest.Id = (int)dr["id"];
+						guest.FirstName = (string)dr["first_name"];
+						guest.LastName = (string)dr["last_name"];
+						guest.Email = (string)dr["email"];
+						guest.Address = (string)dr["address"];
+						guest.PostalCode = (string)dr["postal_code"];
+						guest.Country = (string)dr["country"];
+
+						result.Add(guest);
+					}
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
+		}
+
+		#endregion
+
+		#region Managing Staff Accounts (User Accounts and Authentication Module)
 
 		/**
 		 * Login method.

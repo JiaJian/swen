@@ -13,6 +13,90 @@
 
 	<div class="row">
 		<div class="col-md-12">
+			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
+				<strong>Success!</strong>
+				<p><span id="lblMessageSuccess" runat="server"></span></p>
+			</div>
+			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
+				<strong>Whoops!</strong>
+				<p><span id="lblMessageError" runat="server"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<asp:Repeater ID="rptTable" runat="server">
+				<HeaderTemplate>
+					<table class="table table-striped" id="dtbl">
+						<thead>
+							<tr>
+								<th>Guest ID</th>
+								<th>Full Name</th>
+								<th>Email Address</th>
+								<th>Address</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+				</HeaderTemplate>
+				<ItemTemplate>
+					<tr>
+						<td><%# Eval("id") %></td>
+						<td>
+							<p><%# Eval("FirstName") %> <%# Eval("LastName") %></p>
+						</td>
+						<td>
+							<p>
+								<a href="mailto:<%# Eval("Email") %>"><%# Eval("Email") %></a>
+							</p>
+						</td>
+						<td>
+							<p></p>
+						</td>
+						<td>
+							<a href="/manage/guest-accounts/edit/<%# Eval("id") %>" class="btn btn-warning">
+								<span class="glyphicon glyphicon-pencil"></span>
+								Edit
+							</a>
+							<a data-href="/manage/guest-accounts/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="javascript:void(0);">
+								<span class="glyphicon glyphicon-trash"></span>
+								Delete
+							</a>
+						</td>
+					</tr>
+				</ItemTemplate>
+				<AlternatingItemTemplate>
+					<tr>
+						<td><%# Eval("id") %></td>
+						<td>
+							<p><%# Eval("type") %></p>
+						</td>
+						<td>
+							<p>
+								S$<%# Eval("rate") %>
+							</p>
+						</td>
+						<td>
+							<a href="/manage/room-type/edit/<%# Eval("id") %>" class="btn btn-warning">
+								<span class="glyphicon glyphicon-pencil"></span>
+								Edit
+							</a>
+							<a data-href="/manage/room-type/delete/<%# Eval("id") %>" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" href="#">
+								<span class="glyphicon glyphicon-trash"></span>
+								Delete
+							</a>
+						</td>
+					</tr>
+				</AlternatingItemTemplate>
+				<FooterTemplate>
+					</tbody>
+			</table>
+				</FooterTemplate>
+			</asp:Repeater>
+
+
 			<table class="table table-striped" id="dtbl">
 				<thead>
 					<tr>

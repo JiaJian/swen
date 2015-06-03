@@ -407,6 +407,7 @@
     </Compile>
     <Compile Include="Models\DutyRoster.cs" />
     <Compile Include="Models\DutyType.cs" />
+    <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\ReportsDbManager.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBookingDbManager.cs" />

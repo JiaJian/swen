@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Guest_Account_Add.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Guest_Account_Add" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+	Create guest account
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
@@ -12,8 +14,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
-				<strong>Yay!</strong>
-				<p>We added in the user already and have also sent an email to notify them.</p>
+				<strong>Success!</strong>
+				<p>The guest account is successfully created.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -25,53 +27,55 @@
 		<div class="col-md-8">
 			<div class="form-horizontal">
 				<div class="form-group">
-					<label for="tbxFullName" class="col-sm-2 control-label">Email Address</label>
+					<label for="tbxEmail" class="col-sm-2 control-label">Email Address</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="tbxEmail" id="tbxEmail" placeholder="The email address of the guest (this will be the login ID)" required runat="server" autofocus>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="tbxFullName" class="col-sm-2 control-label">Password</label>
+					<label for="tbxPassword" class="col-sm-2 control-label">Password</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="tbxEmail" id="Text5" placeholder="The password" required runat="server">
+						<input type="password" class="form-control" name="tbxPassword" id="tbxPassword" placeholder="The password" required runat="server">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">First Name</label>
+					<label for="tbxFirstName" class="col-sm-2 control-label">First Name</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxEmail" id="Text1" placeholder="The first name of the guest" required runat="server">
+						<input type="text" class="form-control" name="tbxFirstName" id="tbxFirstName" placeholder="The first name of the guest" required runat="server">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Last Name</label>
+					<label for="tbxLastName" class="col-sm-2 control-label">Last Name</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxEmail" id="Text2" placeholder="The last name of the guest" required runat="server">
+						<input type="text" class="form-control" name="tbxLastName" id="tbxLastName" placeholder="The last name of the guest" required runat="server">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Address</label>
+					<label for="tbxAddress" class="col-sm-2 control-label">Address</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxEmail" id="Text3" placeholder="The address guest" required runat="server">
+						<input type="text" class="form-control" name="tbxAddress" id="tbxAddress" placeholder="The address guest" required runat="server">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Postal Code</label>
+					<label for="tbxPostalCode" class="col-sm-2 control-label">Postal Code</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxEmail" id="Text4" placeholder="The postal code of the address" required runat="server">
+						<input type="text" class="form-control" name="tbxPostalCode" id="tbxPostalCode" placeholder="The postal code of the address" required runat="server">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Country of Residence</label>
+					<label for="tbxCountry" class="col-sm-2 control-label">Country of Residence</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlFAK" id="Select2" runat="server">
+						<input type="text" class="form-control" name="tbxCountry" id="tbxCountry" placeholder="The country of residence of the guest" required runat="server">
+
+						<!-- <select class="form-control" name="ddlCountry" id="ddlCountry"> // runat="server"
 							<option>Singapore</option>
-						</select>
+						</select>-->
 					</div>
 				</div>
 
