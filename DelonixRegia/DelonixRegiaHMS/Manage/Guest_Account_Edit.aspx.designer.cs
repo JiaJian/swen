@@ -10,7 +10,7 @@
 namespace DelonixRegiaHMS.Manage {
     
     
-    public partial class Guest_Account_Add {
+    public partial class Guest_Account_Edit {
         
         /// <summary>
         /// alertSuccess control.

@@ -4,6 +4,11 @@
 	Assign duty
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
+	<style>
+		.fv-bootstrap-icon-input-group {
+			right: 55px !important;
+		}
+	</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="row">
@@ -33,7 +38,6 @@
 						</select>
 					</div>
 				</div>
-
 
 				<div class="form-group">
 					<label for="ddlDutyType" class="col-sm-2 control-label">Duty</label>
@@ -83,15 +87,48 @@
 		$(document).on('ready', function () {
 			$('#datetimepicker1').datetimepicker({
 				format: 'DD/MM/YYYY HH:mm'
+			}).on("dp.change", function (e) {
+				$('.form-horizontal').bootstrapValidator('revalidateField', 'ctl00$MainContent$tbxDutyStart')
 			});
+
 			$('#datetimepicker2').datetimepicker({
 				format: 'DD/MM/YYYY HH:mm'
+			}).on("dp.change", function (e) {
+				$('.form-horizontal').bootstrapValidator('revalidateField', 'ctl00$MainContent$tbxDutyEnd')
 			});
+
 			$("#datetimepicker1").on("dp.change", function (e) {
 				$('#datetimepicker2').data("DateTimePicker").minDate(e.date);
 			});
 			$("#datetimepicker2").on("dp.change", function (e) {
 				$('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+			});
+
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxDutyStart: {
+						validators: {
+							notEmpty: {
+								message: 'The duty start date and time is required!'
+							}
+						}
+					},
+					ctl00$MainContent$tbxDutyEnd: {
+						validators: {
+							notEmpty: {
+								message: 'The duty end date and time is required!'
+							}
+						}
+					}
+				}
 			});
 		});
 	</script>

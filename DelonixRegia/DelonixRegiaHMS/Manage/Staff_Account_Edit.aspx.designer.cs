@@ -10,7 +10,7 @@
 namespace DelonixRegiaHMS.Manage {
     
     
-    public partial class Guest_Account_Add {
+    public partial class Staff_Account_Edit {
         
         /// <summary>
         /// alertSuccess control.
@@ -94,13 +94,31 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText tbxPostalCode;
         
         /// <summary>
-        /// tbxCountry control.
+        /// ddlBankName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxCountry;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlBankName;
+        
+        /// <summary>
+        /// tbxBankAccountNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxBankAccountNumber;
+        
+        /// <summary>
+        /// ddlUserLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUserLevel;
         
         /// <summary>
         /// btnSubmit control.

@@ -156,14 +156,38 @@ namespace DelonixRegiaHMS {
 
 			routes.MapPageRoute(
 				"user3",
+				"manage/guest-accounts/edit/{id}",
+				"~/Manage/Guest_Account_Edit.aspx"
+			);
+
+			routes.MapPageRoute(
+				"user4",
+				"manage/guest-accounts/delete/{id}",
+				"~/Manage/Guest_Account_Delete.aspx"
+			);
+
+			routes.MapPageRoute(
+				"user5",
 				"manage/staff-accounts/add",
 				"~/Manage/Staff_Account_Add.aspx"
 			);
 
 			routes.MapPageRoute(
-				"user4",
+				"user6",
 				"manage/staff-accounts",
 				"~/Manage/Staff_Account_Overview.aspx"
+			);
+
+			routes.MapPageRoute(
+				"user7",
+				"manage/staff-accounts/edit/{id}",
+				"~/Manage/Staff_Account_Edit.aspx"
+			);
+
+			routes.MapPageRoute(
+				"user8",
+				"manage/staff-accounts/delete/{id}",
+				"~/Manage/Staff_Account_Delete.aspx"
 			);
 
 			// Reports

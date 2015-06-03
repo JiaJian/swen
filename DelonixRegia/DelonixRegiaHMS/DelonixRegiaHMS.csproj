@@ -82,18 +82,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\CalendarTemplates\month.html" />
     <Content Include="Assets\Images\favicon.png" />
     <Content Include="Assets\Scripts\bootstrap.js" />
     <Content Include="Assets\Scripts\bootstrap.min.js" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
     <None Include="Assets\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Assets\Scripts\calendar.min.js" />
     <Content Include="Assets\Scripts\dashboard.js" />
+    <Content Include="Assets\Scripts\formValidation.min.js" />
+    <Content Include="Assets\Scripts\framework\bootstrap.min.js" />
     <Content Include="Assets\Scripts\highcharts.js" />
     <Content Include="Assets\Scripts\highcharts-no-data.js" />
     <Content Include="Assets\Scripts\jquery-1.9.1.js" />
     <Content Include="Assets\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Assets\Scripts\metisMenu.min.js" />
+    <Content Include="Assets\Scripts\underscore-min.js" />
+    <Content Include="Assets\Styles\calendar.min.css" />
     <Content Include="Assets\Styles\dashboard.css" />
+    <Content Include="Assets\Styles\formValidation.min.css" />
     <Content Include="Assets\Styles\metisMenu.min.css" />
     <Content Include="Assets\Scripts\npm.js" />
     <Content Include="Assets\Scripts\particleground.min.js" />
@@ -169,11 +176,14 @@
     <Content Include="Icon.png" />
     <Content Include="Logout.aspx" />
     <Content Include="Manage\Duty_Assign.aspx" />
+    <Content Include="Manage\Duty_Roster.aspx" />
     <Content Include="Manage\Duty_Type_Add.aspx" />
     <Content Include="Manage\Duty_Type_Delete.aspx" />
     <Content Include="Manage\Duty_Type_Edit.aspx" />
     <Content Include="Manage\Duty_Type_Overview.aspx" />
     <Content Include="Manage\Guest_Account_Add.aspx" />
+    <Content Include="Manage\Guest_Account_Delete.aspx" />
+    <Content Include="Manage\Guest_Account_Edit.aspx" />
     <Content Include="Manage\Guest_Account_Overview.aspx" />
     <Content Include="Manage\Rooms_Add.aspx" />
     <Content Include="Manage\Rooms_Edit.aspx" />
@@ -185,6 +195,8 @@
     <Content Include="Manage\Room_Type_Edit.aspx" />
     <Content Include="Manage\Room_Type_Overview.aspx" />
     <Content Include="Manage\Staff_Account_Add.aspx" />
+    <Content Include="Manage\Staff_Account_Delete.aspx" />
+    <Content Include="Manage\Staff_Account_Edit.aspx" />
     <Content Include="Manage\Staff_Account_Overview.aspx" />
     <Content Include="Manage\Staff_Record_Edit.aspx" />
     <Content Include="Manage\Staff_Record_Overview.aspx" />
@@ -272,6 +284,13 @@
     <Compile Include="Manage\Duty_Assign.aspx.designer.cs">
       <DependentUpon>Duty_Assign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\Duty_Roster.aspx.cs">
+      <DependentUpon>Duty_Roster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Duty_Roster.aspx.designer.cs">
+      <DependentUpon>Duty_Roster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\Duty_Type_Add.aspx.cs">
       <DependentUpon>Duty_Type_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +325,20 @@
     </Compile>
     <Compile Include="Manage\Guest_Account_Add.aspx.designer.cs">
       <DependentUpon>Guest_Account_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Delete.aspx.cs">
+      <DependentUpon>Guest_Account_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Delete.aspx.designer.cs">
+      <DependentUpon>Guest_Account_Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Edit.aspx.cs">
+      <DependentUpon>Guest_Account_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Guest_Account_Edit.aspx.designer.cs">
+      <DependentUpon>Guest_Account_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Guest_Account_Overview.aspx.cs">
       <DependentUpon>Guest_Account_Overview.aspx</DependentUpon>
@@ -384,6 +417,20 @@
     <Compile Include="Manage\Staff_Account_Add.aspx.designer.cs">
       <DependentUpon>Staff_Account_Add.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\Staff_Account_Delete.aspx.cs">
+      <DependentUpon>Staff_Account_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Delete.aspx.designer.cs">
+      <DependentUpon>Staff_Account_Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Edit.aspx.cs">
+      <DependentUpon>Staff_Account_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Staff_Account_Edit.aspx.designer.cs">
+      <DependentUpon>Staff_Account_Edit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\Staff_Account_Overview.aspx.cs">
       <DependentUpon>Staff_Account_Overview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -407,6 +454,7 @@
     </Compile>
     <Compile Include="Models\DutyRoster.cs" />
     <Compile Include="Models\DutyType.cs" />
+    <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\ReportsDbManager.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomBookingDbManager.cs" />

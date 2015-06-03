@@ -1,21 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Guest_Account_Add.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Guest_Account_Add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Guest_Account_Edit.aspx.cs" Inherits="DelonixRegiaHMS.Manage.Guest_Account_Edit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
-	Create guest account
+	Edit guest account
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Create guest account</h1>
+			<h1 class="page-header">Edit guest account</h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
 				<strong>Success!</strong>
-				<p>The guest account is successfully created.</p>
+				<p>The guest account details have been updated.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -36,7 +36,7 @@
 				<div class="form-group">
 					<label for="tbxPassword" class="col-sm-2 control-label">Password</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="tbxPassword" id="tbxPassword" placeholder="The password" required runat="server">
+						<input type="password" class="form-control" name="tbxPassword" id="tbxPassword" placeholder="The password" runat="server">
 					</div>
 				</div>
 
@@ -57,7 +57,7 @@
 				<div class="form-group">
 					<label for="tbxAddress" class="col-sm-2 control-label">Address</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" name="tbxAddress" id="tbxAddress" placeholder="The address of the guest" required runat="server">
+						<input type="text" class="form-control" name="tbxAddress" id="tbxAddress" placeholder="The address guest" required runat="server">
 					</div>
 				</div>
 
@@ -82,8 +82,8 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-success" id="btnSubmit" runat="server">
-							<span class="glyphicon glyphicon-plus"></span>
-							Create guest account
+							<span class="glyphicon glyphicon-pencil"></span>
+							Save changes
 						</button>
 					</div>
 				</div>
@@ -115,6 +115,7 @@
 						}
 					},
 					ctl00$MainContent$tbxPassword: {
+						enabled: false,
 						validators: {
 							notEmpty: {
 								message: 'The password is required!'
@@ -142,7 +143,6 @@
 							}
 						}
 					},
-
 					ctl00$MainContent$tbxPostalCode: {
 						validators: {
 							notEmpty: {

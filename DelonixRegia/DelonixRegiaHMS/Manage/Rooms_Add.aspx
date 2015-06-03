@@ -37,7 +37,6 @@
 					<label for="ddlRoomType" class="col-sm-2 control-label">Room Type</label>
 					<div class="col-sm-10">
 						<select class="form-control" name="ddlRoomType" id="ddlRoomType" runat="server">
-
 						</select>
 					</div>
 				</div>
@@ -66,4 +65,27 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			// Bootstrap validator
+			$('.form-horizontal').formValidation({
+				framework: 'bootstrap',
+				live: 'enabled',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					ctl00$MainContent$tbxRoomNumber: {
+						validators: {
+							notEmpty: {
+								message: 'The room number is required!'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </asp:Content>
