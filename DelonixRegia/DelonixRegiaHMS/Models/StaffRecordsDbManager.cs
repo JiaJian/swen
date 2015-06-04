@@ -228,6 +228,25 @@ namespace DelonixRegiaHMS.Models {
 				throw e;
 			}
 		}
+
+		public bool DeleteDutyType(int id) {
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("DELETE FROM tbl_duty_type WHERE id = @id;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@id", id);
+
+					return cmd.ExecuteNonQuery() > 0;
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+		}
+
 		#endregion
 
 		/*
