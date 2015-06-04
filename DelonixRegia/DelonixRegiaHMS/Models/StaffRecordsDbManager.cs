@@ -259,6 +259,41 @@ namespace DelonixRegiaHMS.Models {
 				}
 			}
 		}
+
+		public List<DutyRoster> GetAllDutyRecords() {
+			List<DutyRoster> result = new List<DutyRoster>();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT tbl_duty_roster.*, tbl_duty_type.name, tbl_staff.first_name, tbl_staff.last_name FROM tbl_duty_roster, tbl_duty_type, tbl_staff WHERE tbl_duty_roster.duty_id = tbl_duty_type.id AND tbl_duty_roster.staff_id = tbl_staff.id;";
+
+					SqlDataReader dr = cmd.ExecuteReader();
+					while (dr.Read()) {
+						DutyRoster dutyRoster = new DutyRoster();
+
+						dutyRoster.Id = (int)dr["id"];
+						dutyRoster.DutyTypeId = (int)dr["duty_id"];
+						dutyRoster.DutyType = (string)dr["name"];
+						dutyRoster.StaffId = (int)dr["staff_id"];
+						dutyRoster.StaffFirstName = (string)dr["first_name"];
+						dutyRoster.StaffLastName = (string)dr["last_name"];
+						dutyRoster.DutyStart = DateTime.Parse(dr["duty_start"].ToString());
+						dutyRoster.DutyEnd = DateTime.Parse(dr["duty_end"].ToString());
+
+						result.Add(dutyRoster);
+					}
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
+		}
+
 		#endregion
 	}
 }

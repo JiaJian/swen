@@ -28,7 +28,7 @@
 		var calendar = $("#calendar").calendar(
             {
             	tmpl_path: "/Assets/CalendarTemplates/",
-            	events_source: function () { return []; }
+            	events_source: "api/getDutyRoster"
             });
 	</script>
 </asp:Content>

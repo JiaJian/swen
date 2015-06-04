@@ -278,7 +278,7 @@ namespace DelonixRegiaHMS.Models {
 						room.RoomNumber = (string)dr["room_number"];
 						room.RoomTypeId = (int)dr["room_type_id"];
 						room.Status = (int)dr["status"];
-						
+
 					} else {
 						room = null;
 					}
@@ -296,7 +296,7 @@ namespace DelonixRegiaHMS.Models {
 					connection.Open();
 
 					// Our SQL command string builder.
-					string sqlCmd = "UPDATE tbl_room SET id = @id, room_number = @roomNumber, room_type_id = @roomTypeId, status = @status "
+					string sqlCmd = "UPDATE tbl_room SET room_number = @roomNumber, room_type_id = @roomTypeId, status = @status "
 							+ " WHERE id = @id;";
 
 					SqlCommand cmd = new SqlCommand(sqlCmd);
@@ -332,6 +332,104 @@ namespace DelonixRegiaHMS.Models {
 				throw e;
 			}
 		}
+
+		#endregion
+
+		#region Room Bookings
+
+		public bool AddRoomBooking(Booking booking) {
+			int rowsInserted = 0;
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "INSERT INTO tbl_booking(guest_id, room_number, no_of_guests, checkin_date, checkout_date, status, remarks, payment_type, timestamp) "
+									+ "VALUES(@guestId, @roomNumber, @noOfGuests, @checkInDate, @checkOutDate, @status, @remarks, @paymentType, @timestamp)";
+
+					cmd.Parameters.AddWithValue("@guestId", booking.GuestId);
+					cmd.Parameters.AddWithValue("@roomNumber", booking.RoomNumber);
+					cmd.Parameters.AddWithValue("@noOfGuests", booking.NoOfGuests);
+					cmd.Parameters.AddWithValue("@checkInDate", booking.CheckInDate);
+					cmd.Parameters.AddWithValue("@checkOutDate", booking.CheckOutDate);
+					cmd.Parameters.AddWithValue("@status", booking.Status);
+					cmd.Parameters.AddWithValue("@remarks", booking.Remarks);
+					cmd.Parameters.AddWithValue("@paymentType", booking.PaymentType);
+					cmd.Parameters.AddWithValue("@timestamp", booking.Timestamp);
+
+					rowsInserted = cmd.ExecuteNonQuery();
+
+					return rowsInserted > 0;
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+		}
+
+		public bool AddBookingGuest(BookingGuest bookingGuest) {
+			int rowsInserted = 0;
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "INSERT INTO tbl_booking_guest(booking_id, first_name, last_name) "
+									+ "VALUES(@bookingId, @firstName, @lastName)";
+
+					cmd.Parameters.AddWithValue("@bookingId", bookingGuest.BookingId);
+					cmd.Parameters.AddWithValue("@firstName", bookingGuest.FirstName);
+					cmd.Parameters.AddWithValue("@lastName", bookingGuest.LastName);
+
+					rowsInserted = cmd.ExecuteNonQuery();
+
+					return rowsInserted > 0;
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+		}
+
+		public Booking GetBookingByGuestIdAndTimestamp(int guestId, DateTime timestamp) {
+			Booking booking = new Booking();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_booking WHERE guest_id = @guestId AND timestamp = @timestamp;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@guestId", guestId);
+					cmd.Parameters.AddWithValue("@timestamp", timestamp);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						booking.Id = (int)dr["id"];
+						booking.GuestId = (int)dr["guest_id"];
+						booking.RoomNumber = (string)dr["room_number"];
+						booking.NoOfGuests = (int)dr["no_of_guests"];
+						booking.CheckInDate = DateTime.Parse(dr["checkin_date"].ToString());
+						booking.CheckOutDate = DateTime.Parse(dr["checkout_date"].ToString());
+						booking.PaymentType = (string)dr["payment_type"];
+						booking.Remarks = dr["remarks"] == null ? "" : (string)dr["remarks"];
+						booking.Status = (string)dr["status"];
+					} else {
+						booking = null;
+					}
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+
+			return booking;
+		}
+
 
 		#endregion
 	}

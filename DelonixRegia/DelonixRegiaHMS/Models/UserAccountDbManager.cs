@@ -111,6 +111,40 @@ namespace DelonixRegiaHMS.Models {
 			return guest;
 		}
 
+		public Guest GetGuestByEmail(string email) {
+			Guest guest = new Guest();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_guest WHERE email = @email;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@email", email);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						guest.Id = (int)dr["id"];
+						guest.FirstName = (string)dr["first_name"];
+						guest.LastName = (string)dr["last_name"];
+						guest.Email = (string)dr["email"];
+						guest.Address = (string)dr["address"];
+						guest.PostalCode = (string)dr["postal_code"];
+						guest.Country = (string)dr["country"];
+					} else {
+						guest = null;
+					}
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+
+			return guest;
+		}
+
 		public bool UpdateGuest(Guest guest) {
 			try {
 				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {

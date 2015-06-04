@@ -14,8 +14,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert" id="alertSuccess" runat="server" visible="false">
-				<strong>Yay!</strong>
-				<p>We added in the user already and have also sent an email to notify them.</p>
+				<strong>Success!</strong>
+				<p>Room booking created.</p>
 			</div>
 			<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
 				<strong>Whoops!</strong>
@@ -27,26 +27,25 @@
 		<div class="col-md-8">
 			<div class="form-horizontal">
 				<div class="form-group">
-					<label for="tbxFullName" class="col-sm-2 control-label">Guest Email Address</label>
+					<label for="tbxEmail" class="col-sm-2 control-label">Guest Email Address</label>
 					<div class="col-sm-10">
 						<input type="email" class="form-control" name="tbxEmail" id="tbxEmail" placeholder="Guest email address" required runat="server" autofocus>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Room Number</label>
+					<label for="ddlRoomNumber" class="col-sm-2 control-label">Room Number</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlUserLevel" id="ddlUserLevel" runat="server">
-							<option>810</option>
+						<select class="form-control" name="ddlRoomNumber" id="ddlRoomNumber" runat="server">
 						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Check In Date</label>
+					<label for="tbxCheckIn" class="col-sm-2 control-label">Check In Date</label>
 					<div class="col-sm-10">
-						<div class="input-group date" id="datetimepicker1" data-date-format="DD-MM-YYYY">
-							<input type="text" class="form-control" id="tbxStartDate" placeholder="When is the guest checking in?" runat="server">
+						<div class="input-group date" id="datetimepicker1">
+							<input type="text" class="form-control" id="tbxCheckIn" placeholder="When is the guest checking in?" runat="server">
 							<span class="input-group-addon"><span class="fa fa-calendar"></span>
 							</span>
 						</div>
@@ -54,10 +53,10 @@
 				</div>
 
 				<div class="form-group">
-					<label for="tbxStartDate" class="col-sm-2 control-label">Check Out Date</label>
+					<label for="tbxCheckOut" class="col-sm-2 control-label">Check Out Date</label>
 					<div class="col-sm-10">
-						<div class="input-group date" id="datetimepicker2" data-date-format="DD-MM-YYYY">
-							<input type="text" class="form-control" id="Text1" placeholder="When is the guest checking out?" runat="server">
+						<div class="input-group date" id="datetimepicker2">
+							<input type="text" class="form-control" id="tbxCheckOut" placeholder="When is the guest checking out?" runat="server">
 							<span class="input-group-addon"><span class="fa fa-calendar"></span>
 							</span>
 						</div>
@@ -65,39 +64,65 @@
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Number of Guests</label>
+					<label for="ddlGuests" class="col-sm-2 control-label">Number of Guests</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlUserLevel" id="Select1" runat="server">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-							<option>8</option>
-							<option>9</option>
-							<option>10</option>
+						<select class="form-control" name="ddlGuests" id="ddlGuests" runat="server">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
 						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="ddlUserLevel" class="col-sm-2 control-label">Status</label>
+					<label for="ddlStatus" class="col-sm-2 control-label">Status</label>
 					<div class="col-sm-10">
-						<select class="form-control" name="ddlUserLevel" id="Select2" runat="server">
-							<option>Checked In</option>
+						<select class="form-control" name="ddlStatus" id="ddlStatus" runat="server">
+							<option value="Confirmed">Confirmed</option>
+							<option value="Checked In">Checked In</option>
+							<option value="Checked Out">Checked Out</option>
+							<option value="Cancelled">Cancelled</option>
+							<option value="Invoiced">Invoiced</option>
 						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="tbxFullName" class="col-sm-2 control-label">Remarks</label>
+					<label for="tbxRemarks" class="col-sm-2 control-label">Remarks</label>
 					<div class="col-sm-10">
-						<textarea rows="5" class="form-control" name="tbxEmail" id="Email1" placeholder="Enter remarks (such as special requirements)" required runat="server" autofocus />
+						<textarea rows="5" class="form-control" name="tbxRemarks" id="tbxRemarks" placeholder="Enter remarks (such as special requirements)" required runat="server" autofocus />
 					</div>
 				</div>
-				
+
+				<div class="form-group">
+					<label for="ddlPaymentType" class="col-sm-2 control-label">Payment Type</label>
+					<div class="col-sm-10">
+						<select class="form-control" name="ddlPaymentType" id="ddlPaymentType" runat="server">
+							<option value="Cash">Cash</option>
+							<option value="Credit Card">Credit Card</option>
+						</select>
+					</div>
+				</div>
+
+				<div id="details">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Guest Details 1</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="firstName1" placeholder="First name">
+						</div>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="lastName1" placeholder="Last name">
+						</div>
+					</div>
+				</div>
+
 
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
@@ -112,4 +137,42 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Scripts" runat="server">
+	<script src="/Assets/Scripts/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript">
+		$(document).on('ready', function () {
+			$('#datetimepicker1').datetimepicker({
+				format: 'DD/MM/YYYY HH:mm'
+			});
+
+			$('#datetimepicker2').datetimepicker({
+				format: 'DD/MM/YYYY HH:mm'
+			});
+
+			$("#datetimepicker1").on("dp.change", function (e) {
+				$('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+			});
+			$("#datetimepicker2").on("dp.change", function (e) {
+				$('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+			});
+
+			$('#MainContent_ddlGuests').on('change', function () {
+				var number = $('#MainContent_ddlGuests').val();
+
+				$('#details').html("");
+
+				for (var i = 1; i <= number; i++) {
+					var html = '<div class="form-group">'
+							+ '<label class="col-sm-2 control-label">Guest Details ' + i + ' </label>'
+							+ '<div class="col-sm-5">'
+								+ '<input type="text" class="form-control" name="firstName' + i + '" placeholder="First name">'
+							+ '</div>'
+							+ '<div class="col-sm-5">'
+								+ '<input type="text" class="form-control" name="lastName' + i + '" placeholder="Last name">'
+							+ '</div>'
+							+ '</div>';
+					$('#details').append(html);
+				}
+			});
+		});
+	</script>
 </asp:Content>

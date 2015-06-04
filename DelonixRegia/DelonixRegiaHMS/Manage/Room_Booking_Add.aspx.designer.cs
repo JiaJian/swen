@@ -49,58 +49,67 @@ namespace DelonixRegiaHMS.Manage {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl tbxEmail;
         
         /// <summary>
-        /// ddlUserLevel control.
+        /// ddlRoomNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUserLevel;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRoomNumber;
         
         /// <summary>
-        /// tbxStartDate control.
+        /// tbxCheckIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxCheckIn;
         
         /// <summary>
-        /// Text1 control.
+        /// tbxCheckOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxCheckOut;
         
         /// <summary>
-        /// Select1 control.
+        /// ddlGuests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlGuests;
         
         /// <summary>
-        /// Select2 control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlStatus;
         
         /// <summary>
-        /// Email1 control.
+        /// tbxRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Email1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea tbxRemarks;
+        
+        /// <summary>
+        /// ddlPaymentType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlPaymentType;
         
         /// <summary>
         /// btnSubmit control.

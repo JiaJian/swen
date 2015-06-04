@@ -47,6 +47,7 @@ namespace DelonixRegiaHMS.Manage {
 				// Second layer of validation.
 				if (!string.IsNullOrEmpty(tbxRoomNumber.Value)) {
 
+					room.Id = Int32.Parse(Page.RouteData.Values["id"] as string);
 					room.RoomNumber = tbxRoomNumber.Value;
 					room.RoomTypeId = Int32.Parse(ddlRoomType.Value);
 					room.Status = Int32.Parse(ddlStatus.Value);

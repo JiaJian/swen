@@ -29,72 +29,38 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-striped" id="dtbl">
-				<thead>
+			<asp:Repeater ID="rptTable" runat="server">
+				<HeaderTemplate>
+					<table class="table table-striped" id="dtbl">
+						<thead>
+							<tr>
+								<th>Room Number</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+				</HeaderTemplate>
+				<ItemTemplate>
 					<tr>
-						<th>Room Number</th>
-						<th>Status</th>
+						<td><%# Eval("RoomNumber") %></td>
+						<td>
+							<p><%# GetStatusDescription((int)Eval("status")) %></p>
+						</td>
 					</tr>
-				</thead>
-				<tbody>
+				</ItemTemplate>
+				<AlternatingItemTemplate>
 					<tr>
-						<td>201</td>
-						<td>Occupied</td>
+						<td><%# Eval("RoomNumber") %></td>
+						<td>
+							<p><%# GetStatusDescription((int)Eval("status")) %></p>
+						</td>
 					</tr>
-					<tr>
-						<td>202</td>
-						<td>Vacant (Scheduled for Cleaning)</td>
-					</tr>
-					<tr>
-						<td>203</td>
-						<td>Vacant (Scheduled for Cleaning)</td>
-					</tr>
-					<tr>
-						<td>204</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>205</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>206</td>
-						<td>Vacant (Scheduled for Cleaning)</td>
-					</tr>
-					<tr>
-						<td>207</td>
-						<td>Vacant</td>
-					</tr>
-					<tr>
-						<td>208</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>209</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>210</td>
-						<td>Vacant</td>
-					</tr>
-					<tr>
-						<td>301</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>302</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>303</td>
-						<td>Occupied</td>
-					</tr>
-					<tr>
-						<td>304</td>
-						<td>Occupied</td>
-					</tr>
-				</tbody>
+				</AlternatingItemTemplate>
+				<FooterTemplate>
+					</tbody>
 			</table>
+				</FooterTemplate>
+			</asp:Repeater>
 		</div>
 	</div>
 </asp:Content>
