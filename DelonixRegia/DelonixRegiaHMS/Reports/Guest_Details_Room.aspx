@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Guest_Details_Room.aspx.cs" Inherits="DelonixRegiaHMS.Reports.Guest_Details_Room" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+	Guest details report (by room)
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 </asp:Content>
@@ -8,7 +9,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Guest details report (by room)
-				<button class="btn btn-warning pull-right">
+				<button class="btn btn-warning pull-right" id="btnExport" runat="server">
 					<span class="fa fa-download"></span>
 					Export
 				</button>
@@ -23,8 +24,7 @@
 					<div class="col-md-3">
 						<div class="form-group">
 							<label class="control-label">Room</label>
-							<select class="form-control" name="ddlPLZchangethis" id="Select2" runat="server">
-								<option>1015 (Waterfront Suite)</option>
+							<select class="form-control" name="ddlRooms" id="ddlRooms" runat="server">
 							</select>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 						<div class="form-group">
 							<label class="control-label">&nbsp;</label>
 							<div class="clearfix"></div>
-							<a href="search" class="btn btn-success">Search</a>
+							<button class="btn btn-success" id="btnSearch" runat="server">Search</button>
 						</div>
 					</div>
 				</div>
@@ -49,24 +49,39 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-striped" id="dtbl">
-				<thead>
+
+			<asp:Repeater ID="rptTable" runat="server">
+				<HeaderTemplate>
+					<table class="table table-striped" id="dtbl">
+						<thead>
+							<tr>
+								<th>Room Number</th>
+								<th>Guest Full Name</th>
+							</tr>
+						</thead>
+						<tbody>
+				</HeaderTemplate>
+				<ItemTemplate>
 					<tr>
-						<th>Room Number</th>
-						<th>Guest Full Name</th>
+						<td><%# Eval("RoomNumber") %></td>
+						<td>
+							<p><%# Eval("FirstName") %> <%# Eval("LastName") %></p>
+						</td>
 					</tr>
-				</thead>
-				<tbody>
+				</ItemTemplate>
+				<AlternatingItemTemplate>
 					<tr>
-						<td>1015</td>
-						<td>Wilfred Loy</td>
+						<td><%# Eval("RoomNumber") %></td>
+						<td>
+							<p><%# Eval("FirstName") %> <%# Eval("LastName") %></p>
+						</td>
 					</tr>
-					<tr>
-						<td>1015</td>
-						<td>Hilmi Ja'affar</td>
-					</tr>
-				</tbody>
+				</AlternatingItemTemplate>
+				<FooterTemplate>
+					</tbody>
 			</table>
+				</FooterTemplate>
+			</asp:Repeater>
 		</div>
 	</div>
 </asp:Content>
