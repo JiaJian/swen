@@ -45,9 +45,9 @@ namespace DelonixRegiaHMS.Manage {
 		public string GetStatusDescription(int id) {
 			if (id == 1) {
 				return "<span class=\"label label-success\">Vacant</span>";
-			} else if (id == 1) {
+			} else if (id == 2) {
 				return "<span class=\"label label-danger\">Occupied</span>";
-			} else if (id == 1) {
+			} else if (id == 3) {
 				return "<span class=\"label label-warning\">Vacant (Scheduled for Cleaning)</span>";
 			}
 			return "No status";

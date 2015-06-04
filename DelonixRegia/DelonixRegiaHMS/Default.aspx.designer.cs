@@ -31,6 +31,15 @@ namespace DelonixRegiaHMS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertError;
         
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMessage;
+        
+        /// <summary>
         /// tbxUserId control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace DelonixRegiaHMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbxPassword;
+        
+        /// <summary>
+        /// recaptchaBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl recaptchaBox;
         
         /// <summary>
         /// btnLogin control.

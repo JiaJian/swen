@@ -45,7 +45,7 @@
 					<label for="ddlStatus" class="col-sm-2 control-label">Status</label>
 					<div class="col-sm-10">
 						<select class="form-control" name="ddlStatus" id="ddlStatus" runat="server">
-							<option value="1" selected>Vacant</option>
+							<option value="1">Vacant</option>
 							<option value="2">Occupied</option>
 							<option value="3">Vacant and Scheduled for Cleaning</option>
 						</select>

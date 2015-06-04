@@ -27,7 +27,13 @@ namespace DelonixRegiaHMS.Manage {
 					&& !string.IsNullOrEmpty(tbxCountry.Value)) {
 
 						guest.Email = tbxEmail.Value;
-						guest.Password = tbxPassword.Value;
+
+						BCrypt bcrypt = new BCrypt();
+						string salt = BCrypt.GenerateSalt();
+						string hashedPw = BCrypt.HashPassword(tbxPassword.Value, salt);
+						guest.Password = hashedPw;
+
+						guest.Password = hashedPw;
 						guest.FirstName = tbxFirstName.Value;
 						guest.LastName = tbxLastName.Value;
 						guest.Address = tbxAddress.Value;

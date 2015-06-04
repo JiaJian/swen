@@ -111,6 +111,40 @@ namespace DelonixRegiaHMS.Models {
 			return guest;
 		}
 
+		public Guest GetGuestByEmail(string email) {
+			Guest guest = new Guest();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_guest WHERE email = @email;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@email", email);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						guest.Id = (int)dr["id"];
+						guest.FirstName = (string)dr["first_name"];
+						guest.LastName = (string)dr["last_name"];
+						guest.Email = (string)dr["email"];
+						guest.Address = (string)dr["address"];
+						guest.PostalCode = (string)dr["postal_code"];
+						guest.Country = (string)dr["country"];
+					} else {
+						guest = null;
+					}
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
+
+			return guest;
+		}
+
 		public bool UpdateGuest(Guest guest) {
 			try {
 				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
@@ -131,7 +165,13 @@ namespace DelonixRegiaHMS.Models {
 					cmd.Parameters.AddWithValue("@firstName", guest.FirstName);
 					cmd.Parameters.AddWithValue("@lastName", guest.LastName);
 					cmd.Parameters.AddWithValue("@email", guest.Email);
-					cmd.Parameters.AddWithValue("@password", guest.Password);
+
+					BCrypt bcrypt = new BCrypt();
+					string salt = BCrypt.GenerateSalt();
+					string hashedPw = BCrypt.HashPassword(guest.Password, salt);
+					guest.Password = hashedPw;
+
+					cmd.Parameters.AddWithValue("@password", hashedPw);
 					cmd.Parameters.AddWithValue("@address", guest.Address);
 					cmd.Parameters.AddWithValue("@postalCode", guest.PostalCode);
 					cmd.Parameters.AddWithValue("@country", guest.Country);
@@ -184,8 +224,11 @@ namespace DelonixRegiaHMS.Models {
 
 					// password = Hash.HashPassword(password);
 
+					string salt = GetSaltByEmail(userId);
+					string hashedPw = BCrypt.HashPassword(password, salt);
+
 					cmd.Parameters.AddWithValue("@userId", userId);
-					cmd.Parameters.AddWithValue("@password", password);
+					cmd.Parameters.AddWithValue("@password", hashedPw);
 
 					SqlDataReader dr = cmd.ExecuteReader();
 
@@ -214,6 +257,33 @@ namespace DelonixRegiaHMS.Models {
 			}
 
 			return user;
+		}
+
+
+		public string GetSaltByEmail(string email) {
+			User user = new User();
+
+			try {
+				using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand("SELECT password FROM tbl_staff WHERE email = @email;");
+
+					cmd.Connection = connection;
+
+					cmd.Parameters.AddWithValue("@email", email);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+
+					if (dr.Read()) {
+						return (string)dr["password"];
+					} else {
+						return "";
+					}
+				}
+			} catch (SqlException e) {
+				throw e;
+			}
 		}
 
 		public bool AddUser(User user) {
@@ -369,7 +439,7 @@ namespace DelonixRegiaHMS.Models {
 
 					// Our SQL command string builder.
 					string sqlCmd = "UPDATE tbl_staff SET first_name = @firstName, last_name = @lastName, email = @email, address = @address, ";
-					
+
 					sqlCmd += !string.IsNullOrEmpty(user.Password) ? " password = @password, " : ""; // If password is specified, then we will change it. Otherwise we won't.
 					sqlCmd += " postal_code = @postalCode, bank_name = @bankName, bank_account_number = @bankAccountNumber, role_id = @roleId ";
 
@@ -383,7 +453,13 @@ namespace DelonixRegiaHMS.Models {
 					cmd.Parameters.AddWithValue("@firstName", user.FirstName);
 					cmd.Parameters.AddWithValue("@lastName", user.LastName);
 					cmd.Parameters.AddWithValue("@email", user.Email);
-					cmd.Parameters.AddWithValue("@password", user.Password);
+
+					BCrypt bcrypt = new BCrypt();
+					string salt = BCrypt.GenerateSalt();
+					string hashedPw = BCrypt.HashPassword(user.Password, salt);
+					user.Password = hashedPw;
+
+					cmd.Parameters.AddWithValue("@password", hashedPw);
 					cmd.Parameters.AddWithValue("@address", user.Address);
 					cmd.Parameters.AddWithValue("@postalCode", user.PostalCode);
 					cmd.Parameters.AddWithValue("@bankName", user.BankName);

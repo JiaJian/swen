@@ -26,13 +26,19 @@ namespace DelonixRegiaHMS.Manage {
 					&& !string.IsNullOrEmpty(tbxBankAccountNumber.Value)) {
 
 					user.Email = tbxEmail.Value;
-					user.Password = tbxPassword.Value;
+
+					BCrypt bcrypt = new BCrypt();
+					string salt = BCrypt.GenerateSalt();
+					string hashedPw = BCrypt.HashPassword(tbxPassword.Value, salt);
+					user.Password = hashedPw;
+
 					user.FirstName = tbxFirstName.Value;
 					user.LastName = tbxLastName.Value;
 					user.Address = tbxAddress.Value;
 					user.PostalCode = tbxPostalCode.Value;
 					user.BankName = ddlBankName.Value;
 					user.BankAccountNumber = tbxBankAccountNumber.Value;
+					user.RoleId = Int32.Parse(ddlUserLevel.Value);
 
 					if (new UserAccountDbManager().AddUser(user)) {
 						alertSuccess.Visible = true;

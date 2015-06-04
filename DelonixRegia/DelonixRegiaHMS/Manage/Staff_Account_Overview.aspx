@@ -46,10 +46,6 @@
 							</p>
 						</td>
 						<td>
-							<a href="/manage/staff-accounts/reset-pw/<%# Eval("id") %>" class="btn btn-info">
-								<span class="fa fa-refresh"></span>
-								Reset Password
-							</a>
 							<a href="/manage/staff-accounts/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit
@@ -78,10 +74,6 @@
 							</p>
 						</td>
 						<td>
-							<a href="/manage/staff-accounts/reset-pw/<%# Eval("id") %>" class="btn btn-info">
-								<span class="fa fa-refresh"></span>
-								Reset Password
-							</a>
 							<a href="/manage/staff-accounts/edit/<%# Eval("id") %>" class="btn btn-warning">
 								<span class="glyphicon glyphicon-pencil"></span>
 								Edit

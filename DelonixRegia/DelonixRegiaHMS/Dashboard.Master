@@ -81,106 +81,105 @@
 									Home
 								</a>
 							</li>
-							<li>
+							<li id="rbkg" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-bed fa-fw"></i>
 									Room Booking
 									<span class="fa arrow"></span>
 								</a>
 								<ul class="nav nav-second-level">
-									<li>
+									<li id="rbkg_add" runat="server" visible="false">
 										<a href="/manage/roombooking/add">Create Room Booking</a>
 									</li>
-									<li>
+									<li id="rbkg_manage" runat="server" visible="false">
 										<a href="/manage/roombooking">Manage Room Bookings</a>
 									</li>
 								</ul>
 							</li>
 
-							<li>
+							<li id="rmgmt" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-building fa-fw"></i>
 									Rooms Management
 									<span class="fa arrow"></span>
 								</a>
 								<ul class="nav nav-second-level">
-									<li>
+									<li id="rmgmt_roomtype_add" runat="server" visible="false">
 										<a href="/manage/room-type/add">Add Room Type</a>
 									</li>
-									<li>
+									<li id="rmgmt_roomtype_manage" runat="server" visible="false">
 										<a href="/manage/room-type">Manage Room Types</a>
 									</li>
-									<li>
+									<li id="rmgmt_room_add" runat="server" visible="false">
 										<a href="/manage/rooms/add">Add Room</a>
 									</li>
-									<li>
+									<li id="rmgmt_room_manage" runat="server" visible="false">
 										<a href="/manage/rooms">Manage Rooms</a>
 									</li>
 								</ul>
 							</li>
 
-							<li>
+							<li id="staffrec" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-folder fa-fw"></i>
 									Staff Records
 									<span class="fa arrow"></span>
 								</a>
 								<ul class="nav nav-second-level">
-									<li>
+									<li id="staffrec_manage" runat="server" visible="false">
 										<a href="/manage/staff-records">Manage Staff Records</a>
 									</li>
 								</ul>
 							</li>
 
-							<li>
+							<li id="duties" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-calendar fa-fw"></i>
 									Housekeeping and Duties
 									<span class="fa arrow"></span>
 								</a>
 								<ul class="nav nav-second-level">
-									<li>
+									<li id="duties_assign" runat="server" visible="false">
 										<a href="/manage/duty/assign">Assign Duty</a>
 									</li>
-									<li>
+									<li id="duties_roster_view" runat="server" visible="false">
 										<a href="/manage/duty">View Duty Roster</a>
 									</li>
-									<li>
+									<li id="duties_type_add" runat="server" visible="false">
 										<a href="/manage/duty-type/add">Add Duty Type</a>
 									</li>
-									<li>
+									<li id="duties_type_manage" runat="server" visible="false">
 										<a href="/manage/duty-type">Manage Duty Types</a>
 									</li>
 								</ul>
 							</li>
 
-
-							<li>
+							<li id="reports" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-file-pdf-o fa-fw"></i>
 									Reports
 									<span class="fa arrow"></span>
 								</a>
 								<ul class="nav nav-second-level">
-									<li>
+									<li id="reports_room_status" runat="server" visible="false">
 										<a href="/reports/room-status">Room Status</a>
 									</li>
-									<li>
+									<li id="reports_guest_details_room" runat="server" visible="false">
 										<a href="/reports/guest-details/room">Guest Details (By Room)</a>
 									</li>
-									<li>
+									<li id="reports_guest_details_all" runat="server" visible="false">
 										<a href="/reports/guest-details/all">Guest Details (All Guests)</a>
 									</li>
-									<li>
+									<li id="reports_room_occupancy" runat="server" visible="false">
 										<a href="/reports/room-occupancy">Room Occupancy</a>
 									</li>
-									<li>
+									<li id="reports_housekeeping" runat="server" visible="false">
 										<a href="/reports/housekeeping">Housekeeping</a>
 									</li>
 								</ul>
 							</li>
 
-							<li>
+							<li id="useraccs" runat="server" visible="false">
 								<a href="#" onclick="javascript:void(0);">
 									<i class="fa fa-users fa-fw"></i>
 									User Accounts Management

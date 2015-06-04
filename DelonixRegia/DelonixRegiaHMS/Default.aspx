@@ -43,13 +43,13 @@
 		<div class="container">
 			<div class="card card-container">
 				<div class="row">
-				<div class="col-md-12">
-					<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
-						<strong>Oh no!</strong>
-						<p>Incorrect username or password provided.</p>
+					<div class="col-md-12">
+						<div class="alert alert-danger" role="alert" id="alertError" runat="server" visible="false">
+							<strong>Oh no!</strong>
+							<p><span id="lblMessage" runat="server"></span></p>
+						</div>
 					</div>
 				</div>
-			</div>
 				<img id="profile-img" class="profile-img-card" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 				<p id="profile-name" class="profile-name-card"></p>
 
@@ -57,6 +57,10 @@
 					<span id="reauth-email" class="reauth-email"></span>
 					<input type="text" name="user_id" id="tbxUserId" class="form-control" placeholder="Email" runat="server" tabindex="1" autofocus>
 					<input type="password" name="password" id="tbxPassword" class="form-control" placeholder="Password" runat="server" tabindex="2">
+
+					<div class="form-group" id="recaptchaBox" visible="true" runat="server">
+						<div class="g-recaptcha" data-sitekey="6LcY3AcTAAAAAFTjLsfxObo9GQXPadEUY2Wo1480"></div>
+					</div>
 					<div id="remember" class="checkbox">
 						<label>
 							<input type="checkbox" value="remember-me">
@@ -76,6 +80,8 @@
 	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="Assets/Scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="Assets/Scripts/particleground.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://www.google.com/recaptcha/api.js"></script>
+
 
 	<script>
 		$('#particles').particleground({
