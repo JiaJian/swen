@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DelonixRegiaHMS.Models {
-	class Booking {
+	public class Booking {
 		public int Id { get; set; }
 		public int GuestId { get; set; }
 		public string RoomNumber { get; set; }

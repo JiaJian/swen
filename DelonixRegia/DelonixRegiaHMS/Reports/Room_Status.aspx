@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="Room_Status.aspx.cs" Inherits="DelonixRegiaHMS.Reports.Room_Status" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+	Room status report
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Styles" runat="server">
 	<style>
@@ -19,7 +20,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">Room status report
-				<button class="btn btn-warning pull-right">
+				<button class="btn btn-warning pull-right" id="btnExport" runat="server">
 					<span class="fa fa-download"></span>
 					Export
 				</button>

@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<label for="tbxPassword" class="col-sm-2 control-label">Password</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" name="tbxPassword" id="tbxPassword" placeholder="The password" required runat="server">
+						<input type="password" class="form-control" name="tbxPassword" id="tbxPassword" placeholder="The password" runat="server">
 					</div>
 				</div>
 

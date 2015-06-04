@@ -217,6 +217,39 @@ namespace DelonixRegiaHMS.Models {
 			return result;
 		}
 
+		public List<Room> GetAllRooms(int status) {
+			List<Room> result = new List<Room>();
+
+			using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DelonixRegia"].ConnectionString)) {
+				try {
+					connection.Open();
+
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT tbl_room.*, tbl_room_type.type FROM tbl_room, tbl_room_type WHERE tbl_room.room_type_id = tbl_room_type.id AND tbl_room.status = @status;";
+
+					cmd.Parameters.AddWithValue("@status", status);
+
+					SqlDataReader dr = cmd.ExecuteReader();
+					while (dr.Read()) {
+						Room room = new Room();
+
+						room.Id = (int)dr["id"];
+						room.RoomNumber = (string)dr["room_number"];
+						room.RoomTypeId = (int)dr["room_type_id"];
+						room.RoomType = (string)dr["type"];
+						room.Status = (int)dr["status"];
+
+						result.Add(room);
+					}
+				} catch (SqlException e) {
+					throw e;
+				}
+			}
+
+			return result;
+		}
+
 		/**
 		 * Retrieves a single room type.
 		 * @param roomNumber the room number of the room record to be retrieved.
